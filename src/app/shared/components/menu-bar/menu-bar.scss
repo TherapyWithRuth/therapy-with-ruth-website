@@ -1,0 +1,131 @@
+:host {
+  display: block;
+}
+
+.site-header {
+  position: fixed;
+  z-index: 1000;
+  top: 1rem;
+  right: 1.5rem;
+  left: 1.5rem;
+}
+
+.menu-bar {
+  width: min(82vw, 64rem);
+  min-height: 3.5rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  background: #aabdf6;
+  box-shadow: 0 0.75rem 2rem rgba(45, 60, 105, 0.2);
+}
+
+.menu-bar__links {
+  display: flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.25rem, 1vw, 1rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-bar__links > li > a,
+.menu-bar__toggle {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.menu-bar__links > li > a {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  border-radius: 0.4rem;
+  padding: 0 0.7rem;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.menu-bar__links > li > a:hover,
+.menu-bar__links > li > a:focus-visible {
+  background: rgba(255, 255, 255, 0.18);
+  outline: 0.125rem solid #fff;
+  outline-offset: -0.125rem;
+}
+
+.menu-bar__services-item {
+  align-self: stretch;
+}
+
+.menu-bar__toggle {
+  display: none;
+  width: 100%;
+  min-height: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-bar__toggle-icon {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.menu-bar__toggle-icon span {
+  display: block;
+  width: 1.5rem;
+  height: 0.125rem;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+@media (max-width: 48rem) {
+  .site-header {
+    top: 0.75rem;
+    right: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .menu-bar {
+    width: min(92vw, 32rem);
+    min-height: 3.75rem;
+    border-radius: 0.75rem;
+  }
+
+  .menu-bar__toggle {
+    display: flex;
+    min-height: 3.75rem;
+  }
+
+  .menu-bar__links {
+    display: none;
+    min-height: 0;
+    align-items: stretch;
+    padding: 0 0 1rem;
+  }
+
+  .menu-bar__links--open {
+    display: grid;
+  }
+
+  .menu-bar__links > li > a {
+    width: 100%;
+    min-height: 2.75rem;
+  }
+
+  .menu-bar__services-item {
+    align-self: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-bar__links > li > a {
+    transition: none;
+  }
+}

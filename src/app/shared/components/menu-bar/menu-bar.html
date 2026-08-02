@@ -1,0 +1,36 @@
+<header class="site-header">
+  <nav class="menu-bar" aria-label="Primary navigation">
+    <button
+      class="menu-bar__toggle"
+      type="button"
+      aria-controls="primary-menu"
+      [attr.aria-expanded]="isMenuOpen()"
+      (click)="toggleMenu()"
+    >
+      <span class="menu-bar__toggle-label">Menu</span>
+      <span class="menu-bar__toggle-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <ul id="primary-menu" class="menu-bar__links" [class.menu-bar__links--open]="isMenuOpen()">
+      @for (link of primaryLinks; track link.path) {
+        <li>
+          <a [routerLink]="link.path" (click)="closeMenu()">{{ link.label }}</a>
+        </li>
+      }
+
+      <li class="menu-bar__services-item">
+        <app-services-menu (navigate)="closeMenu()" />
+      </li>
+
+      @for (link of secondaryLinks; track link.path) {
+        <li>
+          <a [routerLink]="link.path" (click)="closeMenu()">{{ link.label }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
+</header>
