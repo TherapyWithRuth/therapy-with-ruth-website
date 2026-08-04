@@ -1,0 +1,23 @@
+<section class="approach" aria-labelledby="approach-title">
+  <div class="approach__content">
+    <h2 id="approach-title">A Personalized Approach to Therapy</h2>
+
+    <ul class="approach__points" aria-label="Therapy approach highlights">
+      @for (point of approachPoints; track point.title) {
+        <li>
+          <h3>{{ point.title }}</h3>
+
+          @if (point.imageSrc && point.imageAlt) {
+            <img [src]="point.imageSrc" [alt]="point.imageAlt" />
+          } @else {
+            <div class="approach__image-placeholder" aria-hidden="true">
+              <span>Photo placeholder</span>
+            </div>
+          }
+        </li>
+      }
+    </ul>
+
+    <a class="approach__button" routerLink="/approach">Learn More</a>
+  </div>
+</section>
