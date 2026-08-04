@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+
+.location {
+  display: grid;
+  height: 100%;
+  min-height: 100%;
+  align-items: center;
+  padding: clamp(3rem, 8vh, 7rem) clamp(1.5rem, 8vw, 8rem);
+  background: url('/images/inside-nyc-subway-car.jpg') center / cover no-repeat;
+}
+
+.location__content {
+  width: min(100%, 46rem);
+  border-radius: 1.25rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  color: var(--color-cream);
+  text-shadow: 0 0.125rem 1rem rgba(0, 28, 22, 0.35);
+}
+
+h2 {
+  max-width: 15ch;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+p {
+  max-width: 38rem;
+  margin: clamp(1.25rem, 3vh, 2rem) 0 0;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+@media (max-width: 48rem) {
+  .location {
+    align-items: end;
+    padding-bottom: clamp(3rem, 8vh, 5rem);
+    background-position: 58% center;
+  }
+}

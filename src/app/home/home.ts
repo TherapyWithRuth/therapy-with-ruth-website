@@ -5,6 +5,7 @@ import { ApproachSection } from './approach/approach';
 import { FaqSection } from './faq/faq';
 import { GettingStartedSection } from './getting-started/getting-started';
 import { Hero } from './hero/hero';
+import { LocationSection } from './location/location';
 import { Problem } from './problem/problem';
 import { ServicesSection } from './services/services';
 
@@ -18,6 +19,7 @@ import { ServicesSection } from './services/services';
     ApproachSection,
     GettingStartedSection,
     FaqSection,
+    LocationSection,
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
