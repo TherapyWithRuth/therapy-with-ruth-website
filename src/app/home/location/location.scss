@@ -7,20 +7,37 @@
   height: 100%;
   min-height: 100%;
   align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.8fr);
+  gap: clamp(2rem, 7vw, 7rem);
   padding: clamp(3rem, 8vh, 7rem) clamp(1.5rem, 8vw, 8rem);
   background: url('/images/inside-nyc-subway-car.jpg') center / cover no-repeat;
 }
 
 .location__content {
-  width: min(100%, 46rem);
+  width: 100%;
   border-radius: 1.25rem;
   padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.location__content--location {
+  max-width: 46rem;
   color: var(--color-cream);
   text-shadow: 0 0.125rem 1rem rgba(0, 28, 22, 0.35);
 }
 
+.location__content--cta {
+  max-width: 38rem;
+  justify-self: end;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  background: color-mix(in srgb, var(--color-orange) 92%, transparent);
+  color: var(--color-forest-dark);
+  text-align: center;
+  backdrop-filter: blur(0.4rem);
+  box-shadow: 0 1.25rem 3rem rgba(0, 28, 22, 0.2);
+}
+
 h2 {
-  max-width: 15ch;
+  max-width: 16ch;
   margin: 0;
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(2.5rem, 5.5vw, 5rem);
@@ -28,6 +45,10 @@ h2 {
   letter-spacing: -0.035em;
   line-height: 1.02;
   text-wrap: balance;
+}
+
+.location__content--cta h2 {
+  margin-inline: auto;
 }
 
 p {
@@ -38,12 +59,83 @@ p {
   text-wrap: pretty;
 }
 
-@media (max-width: 48rem) {
+.location__content--cta p {
+  margin-inline: auto;
+}
+
+.location__button {
+  display: inline-flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: clamp(1.5rem, 3vh, 2.25rem);
+  border: 0.125rem solid var(--color-forest-dark);
+  border-radius: 999px;
+  padding: 0.875rem 1.75rem;
+  background: var(--color-forest-dark);
+  color: var(--color-cream);
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.location__button:hover {
+  background: var(--color-cream);
+  color: var(--color-forest-dark);
+  transform: translateY(-0.125rem);
+}
+
+.location__button:focus-visible {
+  outline: 0.1875rem solid var(--color-cream);
+  outline-offset: 0.25rem;
+}
+
+@media (max-width: 64rem) {
   .location {
-    align-items: end;
-    padding-bottom: clamp(3rem, 8vh, 5rem);
+    align-content: end;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-block: clamp(5rem, 10vh, 7rem) clamp(1.5rem, 4vh, 3rem);
     background-color: var(--color-forest-dark);
     background-position: 58% center;
     background-size: 100% auto;
+  }
+
+  .location__content {
+    width: min(100%, 42rem);
+    padding: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  .location__content--location {
+    align-self: end;
+  }
+
+  .location__content--cta {
+    justify-self: start;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+  }
+
+  p {
+    margin-top: 0.75rem;
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    line-height: 1.5;
+  }
+
+  .location__button {
+    min-height: 3rem;
+    margin-top: 1rem;
+    padding-block: 0.625rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .location__button {
+    transition: none;
   }
 }

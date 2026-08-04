@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 import { AboutSection } from './about/about';
 import { ApproachSection } from './approach/approach';
-import { CtaSection } from './cta/cta';
 import { FaqSection } from './faq/faq';
 import { GettingStartedSection } from './getting-started/getting-started';
 import { Hero } from './hero/hero';
@@ -21,7 +20,6 @@ import { ServicesSection } from './services/services';
     GettingStartedSection,
     FaqSection,
     LocationSection,
-    CtaSection,
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
