@@ -11,4 +11,9 @@ export const routes: Routes = [
     title: 'About Ruth Perez Acosta, LMHC | Therapy with Ruth',
     loadComponent: () => import('./about/about').then((component) => component.About),
   },
+  {
+    path: 'services',
+    title: 'Online Therapy Services in New York | Therapy with Ruth',
+    loadComponent: () => import('./services/services').then((component) => component.ServicesPage),
+  },
 ];

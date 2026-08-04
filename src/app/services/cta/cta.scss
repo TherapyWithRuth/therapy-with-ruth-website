@@ -1,0 +1,116 @@
+:host {
+  display: block;
+}
+
+.cta {
+  display: grid;
+  height: 100%;
+  min-height: 100%;
+  place-items: center;
+  padding: clamp(3rem, 8vh, 7rem) clamp(1.5rem, 8vw, 8rem);
+  background: var(--color-orange);
+}
+
+.cta__content {
+  width: min(100%, 64rem);
+  text-align: center;
+}
+
+h2 {
+  max-width: 17ch;
+  margin: 0 auto;
+  color: var(--color-forest-dark);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+p {
+  max-width: 52rem;
+  margin: clamp(1.5rem, 4vh, 2.5rem) auto 0;
+  color: var(--color-forest-dark);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.cta__button {
+  display: inline-flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: clamp(1.75rem, 4vh, 2.75rem);
+  border: 0.125rem solid var(--color-forest-dark);
+  border-radius: 999px;
+  padding: 0.875rem 1.75rem;
+  background: var(--color-forest-dark);
+  color: var(--color-cream);
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.cta__button:hover {
+  background: var(--color-cream);
+  color: var(--color-forest-dark);
+  transform: translateY(-0.125rem);
+}
+
+.cta__button:focus-visible {
+  outline: 0.1875rem solid var(--color-cream);
+  outline-offset: 0.25rem;
+}
+
+@media (max-width: 48rem) {
+  .cta {
+    padding: 5rem 1.25rem 2rem;
+  }
+
+  h2 {
+    font-size: clamp(2.5rem, 11vw, 4rem);
+  }
+
+  p {
+    margin-top: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .cta__button {
+    min-height: 3rem;
+    margin-top: 1.25rem;
+    padding-block: 0.625rem;
+  }
+}
+
+@media (max-height: 42rem) {
+  .cta {
+    padding-block: 4.5rem 1.5rem;
+  }
+
+  h2 {
+    font-size: clamp(2.25rem, 9vh, 4rem);
+  }
+
+  p {
+    margin-top: 0.875rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .cta__button {
+    margin-top: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta__button {
+    transition: none;
+  }
+}

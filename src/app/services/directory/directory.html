@@ -1,0 +1,20 @@
+<section id="services-list" class="directory" aria-labelledby="services-list-title">
+  <div class="directory__content">
+    <div class="directory__heading">
+      <h2 id="services-list-title">Areas of Support</h2>
+      <p>
+        Select an area to learn more about the concerns we can address and what therapy may involve.
+      </p>
+    </div>
+
+    <div class="directory__grid">
+      @for (service of services; track service.path) {
+        <a class="service-card" [routerLink]="service.path">
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+          <span>{{ service.linkLabel }} <span aria-hidden="true">→</span></span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
