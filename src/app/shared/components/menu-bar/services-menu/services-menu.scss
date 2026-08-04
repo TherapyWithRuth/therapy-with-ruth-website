@@ -60,7 +60,7 @@
 
 .services-menu__submenu a:focus-visible {
   border-radius: 0.3rem;
-  outline: 0.15rem solid #20232d;
+  outline: 0.15rem solid var(--color-forest-dark);
   outline-offset: -0.15rem;
 }
 
@@ -72,11 +72,11 @@
   width: max-content;
   min-width: 18rem;
   margin: 0;
-  border: 1px solid rgba(32, 35, 45, 0.12);
+  border: 1px solid rgba(1, 66, 53, 0.16);
   border-radius: 0.5rem;
   padding: 0.55rem;
-  background: #f5f7ff;
-  box-shadow: 0 12px 30px rgba(32, 35, 45, 0.18);
+  background: var(--color-cream);
+  box-shadow: 0 12px 30px rgba(1, 66, 53, 0.18);
   list-style: none;
   transform: translateX(-50%);
 }
@@ -91,14 +91,14 @@
   display: block;
   border-radius: 0.3rem;
   padding: 0.75rem 0.9rem;
-  color: #20232d;
+  color: var(--color-forest-dark);
   line-height: 1.35;
   text-decoration: none;
 }
 
 .services-menu__submenu a:hover,
 .services-menu__submenu a:focus-visible {
-  background: #dce5ff;
+  background: #f9d7b9;
 }
 
 @media (max-width: 48rem) {

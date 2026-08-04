@@ -15,8 +15,9 @@
   min-height: 3.5rem;
   margin: 0 auto;
   border-radius: 1rem;
-  background: #aabdf6;
-  box-shadow: 0 0.75rem 2rem rgba(45, 60, 105, 0.2);
+  background: rgba(1, 66, 53, 0.72);
+  backdrop-filter: blur(0.5rem);
+  box-shadow: none;
 }
 
 .menu-bar__links {

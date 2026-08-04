@@ -1,0 +1,50 @@
+:host {
+  display: block;
+}
+
+.problem {
+  display: grid;
+  height: 100%;
+  min-height: 100%;
+  place-items: center;
+  padding: clamp(2rem, 4vh, 4rem) clamp(1.5rem, 8vw, 8rem);
+  background: var(--color-sage-light);
+}
+
+.problem__content {
+  width: min(100%, 70rem);
+  text-align: center;
+}
+
+h2 {
+  max-width: 18ch;
+  margin: 0 auto;
+  color: var(--color-forest-dark);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.problem__image {
+  --image-size: min(calc(100vw - 3rem), clamp(10rem, 30vh, 18rem));
+
+  display: block;
+  width: var(--image-size);
+  height: var(--image-size);
+  margin: 1.5rem auto 0;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+p {
+  max-width: 42rem;
+  margin: 1.5rem auto 0;
+  color: var(--color-forest-dark);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}

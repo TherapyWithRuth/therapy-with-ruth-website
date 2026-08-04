@@ -1,5 +1,13 @@
 :root {
-  color: #20232d;
+  --color-forest-dark: #014235;
+  --color-forest: #2f6b4f;
+  --color-orange: #ef8f4a;
+  --color-orange-soft: #f4a261;
+  --color-cream: #fff7ed;
+  --color-sage-light: #e6eee4;
+
+  color: var(--color-forest-dark);
+  background: var(--color-sage-light);
   font-family: Arial, Helvetica, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -11,11 +19,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 body {
   margin: 0;
-  background: #fff;
+  background: var(--color-sage-light);
 }
 
 button,
@@ -23,4 +32,10 @@ input,
 textarea,
 select {
   font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
