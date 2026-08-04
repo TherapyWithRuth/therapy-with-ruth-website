@@ -1,0 +1,123 @@
+:host {
+  display: block;
+}
+
+.services {
+  display: grid;
+  height: 100%;
+  min-height: 100%;
+  place-items: center;
+  padding: clamp(2rem, 6vh, 5rem) clamp(1.25rem, 6vw, 6rem);
+  background: var(--color-sage-light);
+}
+
+.services__content {
+  width: min(100%, 76rem);
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+  color: var(--color-forest-dark);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.25rem, 4.5vw, 4.25rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  margin-top: clamp(1.5rem, 4vh, 3rem);
+}
+
+.service-card {
+  display: flex;
+  min-height: clamp(11rem, 24vh, 15rem);
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 0.125rem solid rgba(1, 66, 53, 0.18);
+  border-radius: 1.25rem;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  background: var(--color-cream);
+  box-shadow: 0 0.75rem 2rem rgba(1, 66, 53, 0.1);
+  color: var(--color-forest-dark);
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.service-card h3 {
+  margin: auto 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.35rem, 2.25vw, 1.8rem);
+  font-weight: 400;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.service-card__link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  border-radius: 999px;
+  padding: 0.625rem 1.1rem;
+  background: var(--color-orange);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.service-card:hover {
+  border-color: var(--color-orange);
+  box-shadow: 0 1rem 2.25rem rgba(1, 66, 53, 0.16);
+  transform: translateY(-0.25rem);
+}
+
+.service-card:focus-visible {
+  outline: 0.1875rem solid var(--color-orange);
+  outline-offset: 0.25rem;
+}
+
+@media (max-width: 60rem) {
+  .services__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-card {
+    min-height: clamp(8rem, 17vh, 11rem);
+  }
+}
+
+@media (max-width: 30rem) {
+  .services {
+    padding-inline: 1rem;
+  }
+
+  .service-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .service-card h3 {
+    font-size: clamp(1.05rem, 5vw, 1.35rem);
+  }
+
+  .service-card__link {
+    min-height: 2.5rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card {
+    transition: none;
+  }
+}

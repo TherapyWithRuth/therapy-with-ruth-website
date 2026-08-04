@@ -1,0 +1,14 @@
+<section class="services" aria-labelledby="services-title">
+  <div class="services__content">
+    <h2 id="services-title">How I Can Help</h2>
+
+    <div class="services__grid">
+      @for (service of services; track service.path) {
+        <a class="service-card" [routerLink]="service.path">
+          <h3>{{ service.title }}</h3>
+          <span class="service-card__link">Learn More</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
