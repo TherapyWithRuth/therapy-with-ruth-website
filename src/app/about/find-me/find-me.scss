@@ -1,0 +1,104 @@
+:host {
+  display: block;
+}
+
+.find-me {
+  display: grid;
+  height: 100%;
+  min-height: 100%;
+  place-items: center;
+  padding: clamp(2.5rem, 7vh, 6rem) clamp(1.5rem, 8vw, 8rem);
+  background: var(--color-forest-dark);
+}
+
+.find-me__content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 7rem);
+  width: min(100%, 74rem);
+}
+
+h2 {
+  margin: 0;
+  color: var(--color-cream);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.find-me__profile {
+  border-left: 0.25rem solid var(--color-orange);
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+p {
+  margin: 0;
+  color: var(--color-cream);
+  font-size: clamp(1.05rem, 1.75vw, 1.25rem);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+a {
+  display: inline-flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: clamp(1.5rem, 4vh, 2.5rem);
+  border: 0.125rem solid var(--color-orange);
+  border-radius: 999px;
+  padding: 0.875rem 1.5rem;
+  background: var(--color-orange);
+  color: var(--color-forest-dark);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+a span {
+  font-size: 1.2em;
+}
+
+a:hover {
+  border-color: var(--color-orange-soft);
+  background: var(--color-orange-soft);
+  transform: translateY(-0.125rem);
+}
+
+a:focus-visible {
+  outline: 0.1875rem solid var(--color-cream);
+  outline-offset: 0.25rem;
+}
+
+@media (max-width: 42rem) {
+  .find-me__content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: clamp(3.5rem, 18vw, 5.5rem);
+  }
+
+  .find-me__profile {
+    border-top: 0.25rem solid var(--color-orange);
+    border-left: 0;
+    padding: 2rem 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a {
+    transition: none;
+  }
+}
