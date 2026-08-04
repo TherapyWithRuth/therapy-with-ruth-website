@@ -42,6 +42,8 @@ p {
   .location {
     align-items: end;
     padding-bottom: clamp(3rem, 8vh, 5rem);
+    background-color: var(--color-forest-dark);
     background-position: 58% center;
+    background-size: 100% auto;
   }
 }

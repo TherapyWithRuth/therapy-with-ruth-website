@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, HostListener, effect, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { ServicesMenu } from './services-menu/services-menu';
@@ -15,6 +16,8 @@ interface NavigationLink {
   styleUrl: './menu-bar.scss',
 })
 export class MenuBar {
+  private readonly document = inject(DOCUMENT);
+
   protected readonly isMenuOpen = signal(false);
 
   protected readonly primaryLinks: NavigationLink[] = [
@@ -28,6 +31,23 @@ export class MenuBar {
     { label: 'Contact', path: '/contact' },
     { label: 'Blog', path: '/blog' },
   ];
+
+  constructor() {
+    effect((onCleanup) => {
+      if (!this.isMenuOpen()) {
+        return;
+      }
+
+      const previousOverflow = this.document.body.style.overflow;
+      this.document.body.style.overflow = 'hidden';
+      onCleanup(() => (this.document.body.style.overflow = previousOverflow));
+    });
+  }
+
+  @HostListener('document:keydown.escape')
+  protected closeMenuWithEscape(): void {
+    this.closeMenu();
+  }
 
   protected toggleMenu(): void {
     this.isMenuOpen.update((isOpen) => !isOpen);

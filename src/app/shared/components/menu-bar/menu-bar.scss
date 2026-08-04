@@ -84,6 +84,9 @@
   height: 0.125rem;
   border-radius: 999px;
   background: currentColor;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
 }
 
 @media (max-width: 48rem) {
@@ -91,33 +94,96 @@
     top: 0.75rem;
     right: 0.75rem;
     left: 0.75rem;
+    pointer-events: none;
   }
 
   .menu-bar {
-    width: min(92vw, 32rem);
-    min-height: 3.75rem;
-    border-radius: 0.75rem;
+    width: auto;
+    min-height: 0;
+    margin: 0;
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
   }
 
   .menu-bar__toggle {
-    display: flex;
-    min-height: 3.75rem;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    width: 3.5rem;
+    height: 3.5rem;
+    min-height: 0;
+    margin-left: auto;
+    align-content: center;
+    justify-content: center;
+    place-items: center;
+    border-radius: 0.875rem;
+    padding: 0;
+    background: rgba(1, 66, 53, 0.78);
+    backdrop-filter: blur(0.75rem);
+    pointer-events: auto;
+  }
+
+  .menu-bar__toggle-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .menu-bar__toggle-icon {
+    width: 1.5rem;
+    place-items: center;
+  }
+
+  .menu-bar__toggle--open .menu-bar__toggle-icon span:nth-child(1) {
+    transform: translateY(0.425rem) rotate(45deg);
+  }
+
+  .menu-bar__toggle--open .menu-bar__toggle-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-bar__toggle--open .menu-bar__toggle-icon span:nth-child(3) {
+    transform: translateY(-0.425rem) rotate(-45deg);
   }
 
   .menu-bar__links {
     display: none;
     min-height: 0;
     align-items: stretch;
-    padding: 0 0 1rem;
+    padding: 0;
   }
 
   .menu-bar__links--open {
     display: grid;
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+    height: 100dvh;
+    align-content: center;
+    gap: 0.25rem;
+    overflow-y: auto;
+    padding: 5.5rem 1.5rem 2rem;
+    background: rgba(1, 40, 32, 0.52);
+    backdrop-filter: blur(1.25rem);
+    pointer-events: auto;
+  }
+
+  .menu-bar__links > li {
+    width: min(100%, 26rem);
+    margin: 0 auto;
   }
 
   .menu-bar__links > li > a {
     width: 100%;
-    min-height: 2.75rem;
+    min-height: 3rem;
+    justify-content: center;
+    color: var(--color-cream);
+    font-size: clamp(1.25rem, 5vw, 1.6rem);
   }
 
   .menu-bar__services-item {
@@ -126,7 +192,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .menu-bar__links > li > a {
+  .menu-bar__links > li > a,
+  .menu-bar__toggle-icon span {
     transition: none;
   }
 }

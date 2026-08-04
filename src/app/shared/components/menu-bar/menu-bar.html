@@ -2,12 +2,14 @@
   <nav class="menu-bar" aria-label="Primary navigation">
     <button
       class="menu-bar__toggle"
+      [class.menu-bar__toggle--open]="isMenuOpen()"
       type="button"
       aria-controls="primary-menu"
+      [attr.aria-label]="isMenuOpen() ? 'Close menu' : 'Open menu'"
       [attr.aria-expanded]="isMenuOpen()"
       (click)="toggleMenu()"
     >
-      <span class="menu-bar__toggle-label">Menu</span>
+      <span class="menu-bar__toggle-label">{{ isMenuOpen() ? 'Close menu' : 'Open menu' }}</span>
       <span class="menu-bar__toggle-icon" aria-hidden="true">
         <span></span>
         <span></span>

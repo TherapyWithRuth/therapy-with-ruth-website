@@ -109,10 +109,13 @@
 
   .services-menu__trigger {
     height: auto;
+    justify-content: center;
   }
 
   .services-menu__trigger > a {
-    flex: 1;
+    flex: 0 1 auto;
+    min-height: 3rem;
+    font-size: clamp(1.25rem, 5vw, 1.6rem);
   }
 
   .services-menu__trigger > button {
