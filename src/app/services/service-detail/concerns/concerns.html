@@ -1,0 +1,17 @@
+<section id="concerns" class="concerns" aria-labelledby="concerns-title">
+  <div class="concerns__content">
+    <div class="concerns__heading">
+      <h2 id="concerns-title">What We Can Explore Together</h2>
+      <p>{{ service().concernsIntro }}</p>
+    </div>
+
+    <ul class="concerns__grid">
+      @for (concern of service().concerns; track concern; let number = $index) {
+        <li>
+          <span aria-hidden="true">0{{ number + 1 }}</span>
+          <p>{{ concern }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

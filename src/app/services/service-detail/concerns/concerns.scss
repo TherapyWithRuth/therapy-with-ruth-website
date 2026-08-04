@@ -1,0 +1,118 @@
+:host {
+  display: block;
+}
+
+.concerns {
+  display: grid;
+  height: 100%;
+  min-height: 100%;
+  place-items: center;
+  overflow: clip;
+  padding: clamp(4.5rem, 9vh, 7rem) clamp(1.25rem, 8vw, 8rem) clamp(2rem, 5vh, 4rem);
+  background: var(--color-forest-dark);
+}
+
+.concerns__content {
+  width: min(100%, 76rem);
+}
+
+.concerns__heading {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: end;
+  gap: clamp(2rem, 7vw, 7rem);
+}
+
+h2 {
+  margin: 0;
+  color: var(--color-cream);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.5rem, 5vw, 4.75rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.concerns__heading p {
+  margin: 0;
+  color: var(--color-cream);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.concerns__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  margin: clamp(1.5rem, 4vh, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.concerns__grid li {
+  min-height: clamp(8rem, 18vh, 11rem);
+  border-radius: 1.25rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--color-cream);
+  color: var(--color-forest-dark);
+}
+
+.concerns__grid span {
+  color: var(--color-orange);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.concerns__grid p {
+  max-width: 25rem;
+  margin: 1rem 0 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+@media (max-width: 48rem) {
+  .concerns {
+    padding: 4.75rem 1rem 1rem;
+  }
+
+  .concerns__heading {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .concerns__heading p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .concerns__grid {
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .concerns__grid li {
+    min-height: 8rem;
+    border-radius: 0.9rem;
+    padding: 0.9rem;
+  }
+
+  .concerns__grid p {
+    margin-top: 0.5rem;
+    font-size: clamp(1rem, 4.5vw, 1.2rem);
+  }
+}
+
+@media (max-height: 40rem) and (max-width: 48rem) {
+  .concerns__grid li {
+    min-height: 5.75rem;
+  }
+}

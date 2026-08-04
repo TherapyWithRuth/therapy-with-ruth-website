@@ -1,0 +1,18 @@
+<section class="service-approach" aria-labelledby="service-approach-title">
+  <div class="service-approach__content">
+    <h2 id="service-approach-title">{{ service().approachTitle }}</h2>
+    <div class="service-approach__copy">
+      @for (paragraph of service().approach; track paragraph) {
+        <p>{{ paragraph }}</p>
+      }
+    </div>
+  </div>
+
+  <aside class="service-approach__cta" aria-labelledby="service-cta-title">
+    <h2 id="service-cta-title">Ready to Learn More?</h2>
+    <p>
+      Reach out to schedule a consultation and explore whether working together may be a good fit.
+    </p>
+    <a routerLink="/contact">Schedule a Consultation</a>
+  </aside>
+</section>
