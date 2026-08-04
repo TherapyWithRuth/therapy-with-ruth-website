@@ -35,11 +35,25 @@ h2 {
   text-align: left;
 }
 
-.about__image {
-  display: block;
+.about__image-frame {
+  position: relative;
   width: min(82%, 48rem);
   height: min(50vh, 29rem);
-  border: 0.25rem solid var(--color-orange-soft);
+}
+
+.about__image-frame::before {
+  position: absolute;
+  inset: 1rem -1rem -1rem 1rem;
+  border-radius: 1.5rem;
+  background: var(--color-orange);
+  content: '';
+}
+
+.about__image {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
   border-radius: 1.5rem;
   object-fit: cover;
   object-position: center;
@@ -47,6 +61,7 @@ h2 {
 
 .about__copy {
   position: absolute;
+  z-index: 1;
   right: 0;
   bottom: clamp(1rem, 4vh, 3rem);
   width: min(46%, 28rem);
@@ -105,9 +120,17 @@ p {
     text-align: center;
   }
 
-  .about__image {
+  .about__image-frame {
     width: 100%;
     height: min(34vh, 16rem);
+  }
+
+  .about__image-frame::before {
+    inset: 0.5rem -0.5rem -0.5rem 0.5rem;
+    border-radius: 1rem;
+  }
+
+  .about__image {
     border-radius: 1rem;
   }
 
