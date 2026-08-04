@@ -21,7 +21,7 @@ h2 {
   margin: 0 auto;
   color: var(--color-forest-dark);
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-size: clamp(2.4rem, 4.5vw, 4.25rem);
   font-weight: 400;
   letter-spacing: -0.035em;
   line-height: 1.05;
@@ -29,7 +29,7 @@ h2 {
 }
 
 .problem__image {
-  --image-size: min(calc(100vw - 3rem), clamp(10rem, 30vh, 18rem));
+  --image-size: min(calc(100vw - 3rem), clamp(10rem, 32vh, 20rem));
 
   display: block;
   width: var(--image-size);
@@ -44,7 +44,7 @@ p {
   max-width: 42rem;
   margin: 1.5rem auto 0;
   color: var(--color-forest-dark);
-  font-size: clamp(1rem, 1.4vw, 1.2rem);
-  line-height: 1.55;
+  font-size: clamp(1.05rem, 1.75vw, 1.25rem);
+  line-height: 1.6;
   text-wrap: pretty;
 }
