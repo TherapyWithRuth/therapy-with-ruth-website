@@ -26,10 +26,9 @@ export class MenuBar {
   ];
 
   protected readonly secondaryLinks: NavigationLink[] = [
-    { label: 'Rates', path: '/rates' },
     { label: 'FAQ', path: '/faq' },
-    { label: 'Contact', path: '/contact' },
     { label: 'Blog', path: '/blog' },
+    { label: 'Contact for Consultation', path: '/contact' },
   ];
 
   constructor() {

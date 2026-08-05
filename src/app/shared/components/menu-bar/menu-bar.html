@@ -30,7 +30,13 @@
 
       @for (link of secondaryLinks; track link.path) {
         <li>
-          <a [routerLink]="link.path" (click)="closeMenu()">{{ link.label }}</a>
+          <a
+            [class.menu-bar__consultation]="link.path === '/contact'"
+            [routerLink]="link.path"
+            (click)="closeMenu()"
+          >
+            {{ link.label }}
+          </a>
         </li>
       }
     </ul>

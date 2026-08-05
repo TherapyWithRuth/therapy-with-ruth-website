@@ -57,6 +57,17 @@
   outline-offset: -0.125rem;
 }
 
+.menu-bar__links > li > a.menu-bar__consultation {
+  background: #b9c7e8;
+  color: var(--color-forest-dark);
+  font-weight: 700;
+}
+
+.menu-bar__links > li > a.menu-bar__consultation:hover,
+.menu-bar__links > li > a.menu-bar__consultation:focus-visible {
+  background: #dce3f7;
+}
+
 .menu-bar__services-item {
   align-self: stretch;
 }
