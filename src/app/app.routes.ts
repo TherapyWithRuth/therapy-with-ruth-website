@@ -84,4 +84,9 @@ export const routes: Routes = [
     title: 'Contact Ruth Perez Acosta, LMHC | Therapy with Ruth',
     loadComponent: () => import('./contact/contact').then((component) => component.ContactPage),
   },
+  {
+    path: 'faq',
+    title: 'Therapy FAQs | Therapy with Ruth',
+    loadComponent: () => import('./faq/faq').then((component) => component.FaqPage),
+  },
 ];

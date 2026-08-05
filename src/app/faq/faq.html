@@ -1,0 +1,36 @@
+<section class="faq-page" aria-labelledby="faq-page-title">
+  <header class="faq-page__heading">
+    <p class="faq-page__eyebrow">Questions and Answers</p>
+    <h1 id="faq-page-title">Frequently Asked Questions</h1>
+    <p>
+      Learn more about Ruth’s experience, practice, and what to expect when considering therapy.
+    </p>
+  </header>
+
+  <div class="faq-page__content">
+    @if (faqItems$ | async; as faqItems) {
+      @if (faqItems.length) {
+        <mat-accordion multi>
+          @for (item of faqItems; track item.question) {
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>{{ item.question }}</mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>{{ item.answer }}</p>
+            </mat-expansion-panel>
+          }
+        </mat-accordion>
+      } @else {
+        <p class="faq-page__empty">No frequently asked questions are available right now.</p>
+      }
+    }
+
+    <div class="faq-page__cta">
+      <h2>Still Have a Question?</h2>
+      <p>
+        Reach out to discuss your questions and explore whether working together may be a good fit.
+      </p>
+      <a routerLink="/contact">Contact Ruth</a>
+    </div>
+  </div>
+</section>

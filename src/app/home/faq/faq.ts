@@ -1,29 +1,22 @@
-import { Component } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { catchError, map, of } from 'rxjs';
 
+import { FaqDataService } from '../../shared/faq-data.service';
 import { ScrollSnapSection } from '../../shared/scroll-snap-section';
-
-interface FaqItem {
-  question: string;
-  answer: string;
-}
 
 @Component({
   selector: 'app-faq-section',
-  imports: [RouterLink],
+  imports: [AsyncPipe, RouterLink],
   templateUrl: './faq.html',
   styleUrl: './faq.scss',
 })
 export class FaqSection extends ScrollSnapSection {
-  protected readonly faqItems: FaqItem[] = [
-    {
-      question: 'How many years of experience do you have as a therapist?',
-      answer: 'I have been working professionally as a therapist since 2012.',
-    },
-    {
-      question: 'What insurance do you accept?',
-      answer:
-        "While I don't accept insurance directly, most providers will reimburse you for my services.",
-    },
-  ];
+  private readonly faqData = inject(FaqDataService);
+
+  protected readonly faqItems$ = this.faqData.faqItems$.pipe(
+    map((items) => items.slice(0, 2)),
+    catchError(() => of([])),
+  );
 }

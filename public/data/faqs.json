@@ -1,0 +1,38 @@
+[
+  {
+    "question": "How many years of experience do you have as a therapist?",
+    "answer": "I have been working professionally as a therapist since 2012."
+  },
+  {
+    "question": "What insurance do you accept?",
+    "answer": "While I don't accept insurance directly, most providers will reimburse you for my services."
+  },
+  {
+    "question": "What can I expect during the first session?",
+    "answer": "The first session will be fairly casual. We will spend some time getting to know each other. I will ask about what your goals are for our sessions together and you can tell me about what you have been experiencing that made you decide to start therapy."
+  },
+  {
+    "question": "How do I know therapy is right for me?",
+    "answer": "Therapy may be right for you if you’re feeling stuck, overwhelmed, disconnected, or like you keep repeating the same patterns even when you’re ready for something different. You don’t have to be in crisis to begin therapy. Sometimes therapy is about healing old wounds, learning how to regulate your nervous system, understanding yourself more deeply, or having a space where you can finally exhale and be honest about what you’re carrying.Therapy can also be a place to explore your relationships, your emotions, your identity, your purpose, and the parts of you that are asking for more care and attention. If you’re curious about therapy, that curiosity may be worth listening to. We can start gently, move at your pace, and see if the work feels supportive for where you are right now"
+  },
+  {
+    "question": "Is therapy confidential?",
+    "answer": "Yes. Therapy is a confidential space, and your privacy is deeply respected. What you share in session stays between us, with a few legal and ethical exceptions. These exceptions include situations where there is a risk of serious harm to yourself or someone else, suspected abuse or neglect of a child, elder, or vulnerable person, or when records are required by law or court order."
+  },
+  {
+    "question": "How often do sessions take place?",
+    "answer": "Sessions typically take place once a week. Meeting weekly helps create consistency, build momentum, and allows us to stay connected to the work we’re doing together. Depending on your needs, goals, and availability, we can also discuss what frequency feels most supportive for you."
+  },
+  {
+    "question": "How long are sessions?",
+    "answer": "Therapy sessions are typically 45–50 minutes long. This gives us enough time to check in, explore what’s coming up for you, and work at a pace that feels thoughtful and supportive."
+  },
+  {
+    "question": "Where are you licensed to practice?",
+    "answer": "I am licensed to provide therapy to clients located in New York State."
+  },
+  {
+    "question": "Do you have online or in-person options?",
+    "answer": "I exclusively offer online therapy, which allows you to attend sessions from the comfort and familiarity of your own space. Many clients appreciate the convenience of not having to commute, find parking, or rush from one place to another before a session."
+  }
+]
