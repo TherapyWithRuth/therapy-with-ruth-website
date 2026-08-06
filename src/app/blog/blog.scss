@@ -14,7 +14,7 @@
   padding: 8rem max(1.5rem, calc((100vw - 72rem) / 2)) 5rem;
   background:
     radial-gradient(circle at 80% 20%, rgba(239, 143, 74, 0.35), transparent 26rem),
-    #0b1f3a;
+    var(--color-navy);
   color: var(--color-cream);
   text-align: center;
 }
