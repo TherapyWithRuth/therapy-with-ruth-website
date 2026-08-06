@@ -1,0 +1,40 @@
+<main class="article-page">
+  @if (post(); as loadedPost) {
+    <article>
+      <header class="article-header">
+        <a class="article-header__back" routerLink="/blog"><span aria-hidden="true">←</span> Blog</a>
+        <p class="article-header__date">{{ loadedPost.publishedAt | date: 'MMMM d, y' }}</p>
+        <h1>{{ loadedPost.title }}</h1>
+        <p class="article-header__excerpt">{{ loadedPost.excerpt }}</p>
+        <p class="article-header__author">By {{ loadedPost.author }}</p>
+      </header>
+
+      <figure class="article-featured-image">
+        <img
+          [src]="imageUrl(loadedPost)"
+          [alt]="loadedPost.mainImage.alt"
+          width="1600"
+          height="900"
+        />
+        @if (loadedPost.mainImage.caption) {
+          <figcaption>{{ loadedPost.mainImage.caption }}</figcaption>
+        }
+      </figure>
+
+      <div class="article-body" [innerHTML]="articleHtml()"></div>
+
+      <footer class="article-footer">
+        <p>Every therapeutic journey is personal. Individual support can help you explore what these ideas mean for you.</p>
+        <a routerLink="/contact">Contact for Consultation</a>
+      </footer>
+    </article>
+  } @else if (post() === undefined) {
+    <p class="article-state" aria-live="polite">Loading article…</p>
+  } @else {
+    <section class="article-state">
+      <h1>{{ loadFailed() ? 'The article is temporarily unavailable' : 'Article not found' }}</h1>
+      <p>{{ loadFailed() ? 'Please check back shortly.' : 'This article may have moved or is no longer available.' }}</p>
+      <a routerLink="/blog">Return to the Blog</a>
+    </section>
+  }
+</main>
