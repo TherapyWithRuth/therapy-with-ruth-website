@@ -1,0 +1,62 @@
+<main class="blog-page">
+  <header class="blog-hero">
+    <p class="blog-hero__eyebrow">Insights and Resources</p>
+    <h1>Therapy with Ruth Blog</h1>
+    <p>
+      Reflections and practical guidance for navigating anxiety, relationships, identity, and
+      meaningful personal growth.
+    </p>
+  </header>
+
+  <section class="blog-directory" aria-labelledby="latest-articles">
+    <h2 id="latest-articles">Latest Articles</h2>
+
+    @if (posts(); as loadedPosts) {
+      @if (loadFailed()) {
+        <div class="blog-notice" role="alert">
+          <h3>Articles are temporarily unavailable</h3>
+          <p>Please check back shortly.</p>
+        </div>
+      } @else if (loadedPosts.length) {
+        <div class="blog-grid">
+          @for (post of loadedPosts; track post._id) {
+            <article class="post-card">
+              <a class="post-card__image-link" [routerLink]="['/blog', post.slug]" tabindex="-1">
+                <img
+                  [src]="imageUrl(post)"
+                  [alt]="post.mainImage.alt"
+                  width="900"
+                  height="600"
+                  loading="lazy"
+                />
+              </a>
+              <div class="post-card__content">
+                <p class="post-card__date">{{ post.publishedAt | date: 'MMMM d, y' }}</p>
+                <h3><a [routerLink]="['/blog', post.slug]">{{ post.title }}</a></h3>
+                <p>{{ post.excerpt }}</p>
+                <a class="post-card__link" [routerLink]="['/blog', post.slug]">
+                  Read Article <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+          }
+        </div>
+      } @else {
+        <div class="blog-notice">
+          <h3>New articles are coming soon</h3>
+          <p>Ruth will be sharing reflections and practical mental health resources here.</p>
+        </div>
+      }
+    } @else {
+      <p class="blog-loading" aria-live="polite">Loading articles…</p>
+    }
+  </section>
+
+  <section class="blog-cta" aria-labelledby="blog-cta-title">
+    <div>
+      <h2 id="blog-cta-title">Looking for Personalized Support?</h2>
+      <p>Reach out to explore whether working together may be a good fit for your needs.</p>
+    </div>
+    <a routerLink="/contact">Contact for Consultation</a>
+  </section>
+</main>
