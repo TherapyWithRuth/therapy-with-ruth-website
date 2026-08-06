@@ -38,6 +38,10 @@ html {
   scroll-snap-type: y mandatory;
 }
 
+html.free-scroll {
+  scroll-snap-type: none;
+}
+
 body {
   margin: 0;
   background: var(--color-sage-light);

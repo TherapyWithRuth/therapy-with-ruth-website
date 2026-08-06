@@ -89,4 +89,14 @@ export const routes: Routes = [
     title: 'Therapy FAQs | Therapy with Ruth',
     loadComponent: () => import('./faq/faq').then((component) => component.FaqPage),
   },
+  {
+    path: 'blog',
+    title: 'Therapy Blog and Mental Health Resources | Therapy with Ruth',
+    loadComponent: () => import('./blog/blog').then((component) => component.BlogPage),
+  },
+  {
+    path: 'blog/:slug',
+    loadComponent: () =>
+      import('./blog/article/article').then((component) => component.BlogArticlePage),
+  },
 ];
