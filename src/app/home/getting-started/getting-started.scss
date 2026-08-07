@@ -16,7 +16,7 @@
 }
 
 h2 {
-  max-width: 16ch;
+  max-width: 18ch;
   margin: 0 auto;
   color: var(--color-forest-dark);
   font-family: Georgia, 'Times New Roman', serif;
@@ -36,57 +36,56 @@ h2 {
   margin-top: clamp(1.75rem, 5vh, 3.5rem);
 }
 
-.getting-started__steps {
+.getting-started__copy {
   display: grid;
-  gap: clamp(1rem, 3vh, 1.75rem);
+  gap: clamp(1.25rem, 3vh, 2rem);
+}
+
+.getting-started__intro {
+  margin: 0;
+  color: var(--color-forest-dark);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.getting-started__focus {
+  display: grid;
+  gap: clamp(0.75rem, 2vh, 1.25rem);
   margin: 0;
   padding: 0;
   list-style: none;
-  counter-reset: step;
 }
 
-.getting-started__steps li {
+.getting-started__focus li {
   display: grid;
-  grid-template-columns: 3rem minmax(0, 1fr);
-  align-items: center;
+  grid-template-columns: 0.75rem minmax(0, 1fr);
+  align-items: baseline;
   gap: 1rem;
   color: var(--color-forest-dark);
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.25rem, 2.25vw, 1.75rem);
-  line-height: 1.25;
-  counter-increment: step;
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  line-height: 1.35;
   text-wrap: balance;
 }
 
-.getting-started__steps li::before {
-  display: grid;
-  width: 3rem;
+.getting-started__focus li::before {
+  display: block;
+  width: 0.75rem;
   aspect-ratio: 1;
-  place-items: center;
   border-radius: 50%;
   background: var(--color-orange);
-  content: counter(step);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
+  content: '';
 }
 
 .getting-started__graphic {
-  display: grid;
+  display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 3;
-  place-items: center;
-  border: 0.125rem dashed rgba(1, 66, 53, 0.55);
   border-radius: 1.5rem;
-  background: rgba(255, 247, 237, 0.62);
-}
-
-.getting-started__graphic span {
-  color: rgba(1, 66, 53, 0.68);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  object-fit: cover;
+  object-position: center;
 }
 
 @media (max-width: 42rem) {
@@ -100,16 +99,27 @@ h2 {
     margin-top: 1.5rem;
   }
 
-  .getting-started__steps {
-    gap: 0.875rem;
+  .getting-started__copy {
+    gap: 1rem;
   }
 
-  .getting-started__steps li {
-    grid-template-columns: 2.5rem minmax(0, 1fr);
+  .getting-started__intro {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 
-  .getting-started__steps li::before {
-    width: 2.5rem;
+  .getting-started__focus {
+    gap: 0.625rem;
+  }
+
+  .getting-started__focus li {
+    grid-template-columns: 0.625rem minmax(0, 1fr);
+    gap: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .getting-started__focus li::before {
+    width: 0.625rem;
   }
 
   .getting-started__graphic {

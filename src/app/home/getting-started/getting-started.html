@@ -1,17 +1,31 @@
 <section class="getting-started" aria-labelledby="getting-started-title">
   <div class="getting-started__content">
-    <h2 id="getting-started-title">Getting Started is Simple</h2>
+    <h2 id="getting-started-title">Build on the Work You’ve Already Done</h2>
 
     <div class="getting-started__details">
-      <ol class="getting-started__steps">
-        @for (step of steps; track step) {
-          <li>{{ step }}</li>
-        }
-      </ol>
+      <div class="getting-started__copy">
+        <p class="getting-started__intro">
+          You may already understand many of your patterns and have tools that have helped you grow.
+          Whether you are returning to therapy or looking for a new therapeutic relationship, our
+          work can build on that foundation and help you turn insight into meaningful change.
+        </p>
 
-      <div class="getting-started__graphic" aria-hidden="true">
-        <span>Graphic placeholder</span>
+        <ul class="getting-started__focus">
+          @for (focusArea of focusAreas; track focusArea) {
+            <li>{{ focusArea }}</li>
+          }
+        </ul>
       </div>
+
+      <img
+        class="getting-started__graphic"
+        src="/images/methodology.jpg"
+        alt="Person reflecting and writing in a notebook"
+        width="2048"
+        height="1152"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   </div>
 </section>

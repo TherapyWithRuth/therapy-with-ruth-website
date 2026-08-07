@@ -8,9 +8,9 @@ import { ScrollSnapSection } from '../../shared/scroll-snap-section';
   styleUrl: './getting-started.scss',
 })
 export class GettingStartedSection extends ScrollSnapSection {
-  protected readonly steps = [
-    'Schedule a consultation',
-    'Meet for your first session',
-    'Begin your therapy journey',
+  protected readonly focusAreas = [
+    'Move beyond understanding a pattern toward changing it',
+    'Explore what continues to feel unresolved or repetitive',
+    'Strengthen self-trust and live with greater intention',
   ];
 }
