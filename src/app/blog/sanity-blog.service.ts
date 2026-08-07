@@ -34,7 +34,9 @@ const postSummaryProjection = `
   publishedAt,
   mainImage {
     ...,
-    asset
+    asset,
+    "width": asset->metadata.dimensions.width,
+    "height": asset->metadata.dimensions.height
   }
 `;
 

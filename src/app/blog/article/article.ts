@@ -57,7 +57,7 @@ export class BlogArticlePage {
   }
 
   protected imageUrl(post: BlogPost): string {
-    return this.blogService.imageUrl(post.mainImage, 1600, 900);
+    return this.blogService.imageUrl(post.mainImage, 1600);
   }
 
   private setMetadata(post: BlogPost): void {

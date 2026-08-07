@@ -64,11 +64,12 @@
 
 .article-featured-image img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
+  max-height: 32rem;
+  margin-inline: auto;
   border-radius: 1.25rem;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
 }
 
 .article-featured-image figcaption,
@@ -126,8 +127,11 @@
 
 .article-body img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
+  max-height: 32rem;
+  margin-inline: auto;
   border-radius: 1rem;
 }
 
