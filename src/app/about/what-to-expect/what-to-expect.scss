@@ -9,7 +9,9 @@
   place-items: center;
   overflow: clip;
   padding: clamp(2.5rem, 7vh, 6rem) clamp(1.5rem, 8vw, 8rem);
-  background: var(--color-sage-light);
+  background:
+    linear-gradient(rgba(230, 238, 228, 0.72), rgba(230, 238, 228, 0.72)),
+    url('/images/storybook-2.jpg') center / cover no-repeat;
 }
 
 .what-to-expect__content {

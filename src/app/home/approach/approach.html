@@ -8,7 +8,14 @@
           <h3>{{ point.title }}</h3>
 
           @if (point.imageSrc && point.imageAlt) {
-            <img [src]="point.imageSrc" [alt]="point.imageAlt" />
+            <img
+              [src]="point.imageSrc"
+              [alt]="point.imageAlt"
+              [attr.width]="point.imageWidth"
+              [attr.height]="point.imageHeight"
+              loading="lazy"
+              decoding="async"
+            />
           } @else {
             <div class="approach__image-placeholder" aria-hidden="true">
               <span>Photo placeholder</span>
@@ -17,7 +24,5 @@
         </li>
       }
     </ul>
-
-    <a class="approach__button" routerLink="/approach">Learn More</a>
   </div>
 </section>
