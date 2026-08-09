@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostListener, effect, inject, signal } from '@angular/core';
+import { Component, DestroyRef, HostListener, effect, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { ServicesMenu } from './services-menu/services-menu';
@@ -17,6 +17,13 @@ interface NavigationLink {
 })
 export class MenuBar {
   private readonly document = inject(DOCUMENT);
+  private readonly destroyRef = inject(DestroyRef);
+
+  private readonly updateVisualViewportOffset = (): void => {
+    const offsetTop = this.document.defaultView?.visualViewport?.offsetTop ?? 0;
+
+    this.document.documentElement.style.setProperty('--visual-viewport-top', `${offsetTop}px`);
+  };
 
   protected readonly isMenuOpen = signal(false);
 
@@ -32,6 +39,18 @@ export class MenuBar {
   ];
 
   constructor() {
+    const visualViewport = this.document.defaultView?.visualViewport;
+
+    this.updateVisualViewportOffset();
+    visualViewport?.addEventListener('resize', this.updateVisualViewportOffset);
+    visualViewport?.addEventListener('scroll', this.updateVisualViewportOffset);
+
+    this.destroyRef.onDestroy(() => {
+      visualViewport?.removeEventListener('resize', this.updateVisualViewportOffset);
+      visualViewport?.removeEventListener('scroll', this.updateVisualViewportOffset);
+      this.document.documentElement.style.removeProperty('--visual-viewport-top');
+    });
+
     effect((onCleanup) => {
       if (!this.isMenuOpen()) {
         return;

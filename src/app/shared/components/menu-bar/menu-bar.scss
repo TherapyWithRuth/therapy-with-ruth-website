@@ -58,7 +58,7 @@
 }
 
 .menu-bar__links > li > a.menu-bar__consultation {
-  background: #b9c7e8;
+  background: var(--color-orange);
   color: var(--color-forest-dark);
   font-weight: 700;
 }
@@ -102,9 +102,7 @@
 
 @media (max-width: 48rem) {
   .site-header {
-    top: 0.75rem;
-    right: 0.75rem;
-    left: 0.75rem;
+    position: static;
     pointer-events: none;
   }
 
@@ -118,13 +116,15 @@
   }
 
   .menu-bar__toggle {
-    position: relative;
+    position: fixed;
     z-index: 2;
+    top: calc(0.75rem + env(safe-area-inset-top) + var(--visual-viewport-top, 0px));
+    right: calc(1.25rem + env(safe-area-inset-right));
     display: grid;
     width: 3.5rem;
     height: 3.5rem;
     min-height: 0;
-    margin-left: auto;
+    margin: 0;
     align-content: center;
     justify-content: center;
     place-items: center;
