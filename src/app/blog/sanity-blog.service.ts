@@ -45,6 +45,7 @@ const allPostsQuery = `
     _type == "post" &&
     defined(slug.current) &&
     defined(publishedAt) &&
+    defined(mainImage.asset._ref) &&
     publishedAt <= now()
   ] | order(publishedAt desc) {
     ${postSummaryProjection}
@@ -56,6 +57,7 @@ const postBySlugQuery = `
     _type == "post" &&
     slug.current == $slug &&
     defined(publishedAt) &&
+    defined(mainImage.asset._ref) &&
     publishedAt <= now()
   ][0] {
     ${postSummaryProjection},
@@ -70,6 +72,7 @@ const publishedPostSlugsQuery = `
     _type == "post" &&
     defined(slug.current) &&
     defined(publishedAt) &&
+    defined(mainImage.asset._ref) &&
     publishedAt <= now()
   ].slug.current
 `;

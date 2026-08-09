@@ -131,10 +131,18 @@ h2 {
 
   .approach__points img,
   .approach__image-placeholder {
-    height: min(9vh, 4.5rem);
+    height: min(18vh, 9rem);
     margin-top: 0.5rem;
     aspect-ratio: auto;
     border-radius: 0.75rem;
+  }
+
+  .approach__points li:nth-child(2) img {
+    object-position: center 40%;
+  }
+
+  .approach__points li:nth-child(3) img {
+    object-position: center 35%;
   }
 
   .approach__button {

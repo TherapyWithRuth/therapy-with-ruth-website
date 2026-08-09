@@ -6,6 +6,12 @@
   --mat-sys-primary: var(--color-forest-dark);
   --mat-sys-on-primary: var(--color-cream);
   --mat-sys-surface: var(--color-cream);
+  --contact-background-overlay: linear-gradient(
+    90deg,
+    rgba(230, 238, 228, 0.92) 0%,
+    rgba(230, 238, 228, 0.76) 48%,
+    rgba(230, 238, 228, 0.46) 100%
+  );
 
   display: grid;
   min-height: 100svh;
@@ -13,8 +19,9 @@
   align-items: center;
   gap: clamp(2rem, 7vw, 7rem);
   padding: clamp(7rem, 12vh, 9rem) clamp(1.5rem, 8vw, 8rem) clamp(2.5rem, 6vh, 5rem);
-  background: var(--color-sage-light);
-  scroll-snap-align: start;
+  background:
+    var(--contact-background-overlay),
+    url('/images/cliffside-lima.jpeg') center / cover no-repeat;
 }
 
 .contact__intro {
@@ -132,6 +139,11 @@ button[mat-flat-button] {
 
 @media (max-width: 52rem) {
   .contact {
+    --contact-background-overlay: linear-gradient(
+      rgba(230, 238, 228, 0.8),
+      rgba(230, 238, 228, 0.8)
+    );
+
     grid-template-columns: 1fr;
     align-content: start;
     gap: 1.5rem;

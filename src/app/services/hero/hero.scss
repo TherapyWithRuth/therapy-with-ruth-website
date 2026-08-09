@@ -3,6 +3,13 @@
 }
 
 .services-hero {
+  --services-hero-overlay: linear-gradient(
+    90deg,
+    rgba(230, 238, 228, 0.96) 0%,
+    rgba(230, 238, 228, 0.82) 1%,
+    rgba(230, 238, 228, 0.16) 100%
+  );
+
   display: grid;
   height: 100%;
   min-height: 100%;
@@ -11,7 +18,9 @@
   gap: clamp(2rem, 8vw, 8rem);
   overflow: clip;
   padding: clamp(7rem, 13vh, 9rem) clamp(1.5rem, 8vw, 8rem) clamp(3rem, 8vh, 6rem);
-  background: var(--color-sage-light);
+  background:
+    var(--services-hero-overlay),
+    url('/images/new-york-across-the-hudson.jpeg') center / cover no-repeat;
 }
 
 .services-hero__content {
@@ -101,6 +110,11 @@ h1 {
 
 @media (max-width: 48rem) {
   .services-hero {
+    --services-hero-overlay: linear-gradient(
+      rgba(230, 238, 228, 0.82),
+      rgba(230, 238, 228, 0.82)
+    );
+
     grid-template-columns: 1fr;
     align-content: center;
     gap: 1.5rem;
@@ -126,13 +140,18 @@ h1 {
   }
 
   .services-hero__note {
+    display: flex;
     width: min(38vw, 10rem);
+    align-items: center;
+    justify-content: center;
     justify-self: center;
-    padding: 1.25rem;
+    padding: 1rem;
   }
 
   .services-hero__note p {
+    width: 100%;
     font-size: clamp(1rem, 5vw, 1.35rem);
+    text-align: center;
   }
 }
 

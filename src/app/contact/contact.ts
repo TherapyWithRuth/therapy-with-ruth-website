@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class ContactPage {
   private readonly document = inject(DOCUMENT);
+  private readonly destroyRef = inject(DestroyRef);
   private readonly formBuilder = inject(FormBuilder);
 
   // Temporary test recipient. Replace this with Ruth's receiving email before launch.
@@ -25,6 +26,11 @@ export class ContactPage {
     phone: ['', [Validators.pattern(/^[0-9+().\-\s]{7,25}$/)]],
     message: ['', [Validators.required, Validators.maxLength(2000)]],
   });
+
+  constructor() {
+    this.document.documentElement.classList.add('free-scroll');
+    this.destroyRef.onDestroy(() => this.document.documentElement.classList.remove('free-scroll'));
+  }
 
   protected submitForm(): void {
     this.submissionMessage.set('');

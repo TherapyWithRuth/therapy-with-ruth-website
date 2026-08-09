@@ -1,15 +1,39 @@
 <main class="blog-page">
-  <header class="blog-hero">
-    <p class="blog-hero__eyebrow">Insights and Resources</p>
-    <h1>Mental Health Blog</h1>
-    <p>
-      Reflections and practical guidance for navigating anxiety, relationships, identity, and
-      meaningful personal growth.
-    </p>
-  </header>
+  <section class="blog-intro" aria-labelledby="blog-title">
+    <header class="blog-hero">
+      <p class="blog-hero__eyebrow">Insights and Resources</p>
+      <h1 id="blog-title">Mental Health Blog</h1>
+      <p>
+        Reflections and practical guidance for navigating anxiety, relationships, identity, and
+        meaningful personal growth.
+      </p>
+    </header>
+
+    <div class="blog-banner">
+      <img
+        src="/images/sunset-beach-lima-1.jpeg"
+        alt="Ocean waves viewed from a flower-covered cliffside in Lima"
+        width="4032"
+        height="3024"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </section>
 
   <section class="blog-directory" aria-labelledby="latest-articles">
-    <h2 id="latest-articles">Latest Articles</h2>
+    <div class="blog-directory__heading">
+      <h2 id="latest-articles">Latest Articles</h2>
+      <div class="blog-directory__controls" aria-label="Article carousel controls">
+        <button type="button" (click)="scrollArticles(-1)" aria-label="View previous articles">
+          <span aria-hidden="true">←</span>
+        </button>
+        <span>Scroll to explore</span>
+        <button type="button" (click)="scrollArticles(1)" aria-label="View more articles">
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </div>
 
     @if (posts(); as loadedPosts) {
       @if (loadFailed()) {
@@ -18,7 +42,7 @@
           <p>Please check back shortly.</p>
         </div>
       } @else if (loadedPosts.length) {
-        <div class="blog-grid">
+        <div #articleScroller class="blog-grid">
           @for (post of loadedPosts; track post._id) {
             <article class="post-card">
               <a class="post-card__image-link" [routerLink]="['/blog', post.slug]" tabindex="-1">
@@ -50,13 +74,5 @@
     } @else {
       <p class="blog-loading" aria-live="polite">Loading articles…</p>
     }
-  </section>
-
-  <section class="blog-cta" aria-labelledby="blog-cta-title">
-    <div>
-      <h2 id="blog-cta-title">Looking for Personalized Support?</h2>
-      <p>Reach out to explore whether working together may be a good fit for your needs.</p>
-    </div>
-    <a routerLink="/contact">Contact for Consultation</a>
   </section>
 </main>

@@ -1,5 +1,5 @@
-import { DOCUMENT, DatePipe } from '@angular/common';
-import { Component, DestroyRef, inject, PendingTasks, signal } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, ElementRef, inject, PendingTasks, signal, viewChild } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
@@ -13,9 +13,8 @@ import { SanityBlogService } from './sanity-blog.service';
   styleUrl: './blog.scss',
 })
 export class BlogPage {
+  private readonly articleScroller = viewChild<ElementRef<HTMLElement>>('articleScroller');
   private readonly blogService = inject(SanityBlogService);
-  private readonly document = inject(DOCUMENT);
-  private readonly destroyRef = inject(DestroyRef);
   private readonly pendingTasks = inject(PendingTasks);
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
@@ -24,9 +23,6 @@ export class BlogPage {
   protected readonly loadFailed = signal(false);
 
   constructor() {
-    this.document.documentElement.classList.add('free-scroll');
-    this.destroyRef.onDestroy(() => this.document.documentElement.classList.remove('free-scroll'));
-
     const pageTitle = 'Therapy Blog and Mental Health Resources | Therapy with Ruth';
     const description =
       'Reflections and practical guidance for navigating anxiety, relationships, identity, and meaningful personal growth.';
@@ -57,5 +53,18 @@ export class BlogPage {
 
   protected imageUrl(post: BlogPostSummary): string {
     return this.blogService.imageUrl(post.mainImage, 900, 600);
+  }
+
+  protected scrollArticles(direction: -1 | 1): void {
+    const scroller = this.articleScroller()?.nativeElement;
+
+    if (!scroller) {
+      return;
+    }
+
+    scroller.scrollBy({
+      left: direction * scroller.clientWidth * 0.8,
+      behavior: 'smooth',
+    });
   }
 }

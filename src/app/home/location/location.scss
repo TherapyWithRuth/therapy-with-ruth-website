@@ -134,6 +134,17 @@ p {
   }
 }
 
+@media (max-width: 42rem) {
+  .location {
+    background-position: left center;
+    background-size: auto 27.5%;
+  }
+
+  .location__content--location {
+    transform: translateY(-10vh);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .location__button {
     transition: none;

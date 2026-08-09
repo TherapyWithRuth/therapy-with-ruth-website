@@ -26,14 +26,14 @@ export class ApproachSection extends ScrollSnapSection {
     },
     {
       title: 'Safe, supportive environment',
-      imageSrc: '/images/walking-arms-with-around-shoulders.jpg',
+      imageSrc: '/images/walking-arms-around-shoulders.jpg',
       imageAlt: 'Two women walking with their arms around each other',
       imageWidth: 1366,
       imageHeight: 2048,
     },
     {
       title: 'Tailored sessions',
-      imageSrc: '/images/discussion.jpg',
+      imageSrc: '/images/talking-on-bench.jpg',
       imageAlt: 'Two women having a supportive conversation outdoors',
       imageWidth: 2048,
       imageHeight: 1366,
