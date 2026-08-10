@@ -3,82 +3,48 @@
     <p class="contact__eyebrow">Contact</p>
     <h1 id="contact-title">Let’s Explore the Next Step Together</h1>
     <p class="contact__description">
-      Finding the right therapist is a personal decision. Share a little about what you are looking
-      for, and I can follow up about scheduling a consultation.
+      Finding the right therapist is a personal decision. Choose a time for a brief consultation,
+      or reach out directly if you would prefer to connect by email.
     </p>
 
     <div class="contact__alternative">
-      <h2>Prefer Psychology Today?</h2>
-      <p>You can view my verified professional profile and get in touch there.</p>
-      <a
-        href="https://www.psychologytoday.com/us/therapists/ruth-perez-acosta-new-york-ny/483314"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Psychology Today
-        <span aria-hidden="true">↗</span>
-      </a>
+      <h2>Have a question?</h2>
+      <p>Email me or visit my verified professional profile.</p>
+      <div class="contact__actions">
+        <a
+          class="contact__email-button"
+          href="mailto:therapywithruth@gmail.com?subject=Consultation%20request&body=Hi%20Ruth%2C%0A%0AI%20would%20like%20to%20learn%20more%20about%20therapy.%0A%0A"
+        >
+          Email Ruth
+        </a>
+        <a
+          href="https://www.psychologytoday.com/us/therapists/ruth-perez-acosta-new-york-ny/483314"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Psychology Today Profile
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </div>
   </div>
 
-  <div class="contact__form-card">
-    <h2>Request a Consultation</h2>
-
-    <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
-      <div class="contact__field-row">
-        <mat-form-field appearance="outline">
-          <mat-label>Name</mat-label>
-          <input matInput formControlName="name" autocomplete="name" />
-          @if (contactForm.controls.name.hasError('required')) {
-            <mat-error>Please enter your name.</mat-error>
-          }
-          @if (contactForm.controls.name.hasError('maxlength')) {
-            <mat-error>Name must be 100 characters or fewer.</mat-error>
-          }
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput type="email" formControlName="email" autocomplete="email" />
-          @if (contactForm.controls.email.hasError('required')) {
-            <mat-error>Please enter your email.</mat-error>
-          }
-          @if (contactForm.controls.email.hasError('email')) {
-            <mat-error>Please enter a valid email address.</mat-error>
-          }
-        </mat-form-field>
-      </div>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Phone Number (optional)</mat-label>
-        <input matInput type="tel" formControlName="phone" autocomplete="tel" />
-        @if (contactForm.controls.phone.hasError('pattern')) {
-          <mat-error>Please enter a valid phone number.</mat-error>
-        }
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Message</mat-label>
-        <textarea matInput formControlName="message" rows="6"></textarea>
-        <mat-hint align="end">{{ contactForm.controls.message.value.length }} / 2000</mat-hint>
-        @if (contactForm.controls.message.hasError('required')) {
-          <mat-error>Please enter a message.</mat-error>
-        }
-        @if (contactForm.controls.message.hasError('maxlength')) {
-          <mat-error>Message must be 2000 characters or fewer.</mat-error>
-        }
-      </mat-form-field>
-
-      <p class="contact__privacy-note">
-        Please do not include sensitive clinical information. This form is not monitored for
-        emergencies.
-      </p>
-
-      <button mat-flat-button type="submit">Send Message</button>
-
-      @if (submissionMessage()) {
-        <p class="contact__status" role="status">{{ submissionMessage() }}</p>
-      }
-    </form>
+  <div class="contact__calendar-card">
+    <div
+      #calendlyWidget
+      class="calendly-inline-widget"
+      data-url="https://calendly.com/therapywithruth/15-minute-consultation"
+      aria-label="Calendly scheduling calendar"
+    ></div>
+    <p class="contact__calendar-fallback">
+      If the calendar does not load,
+      <a
+        href="https://calendly.com/therapywithruth/15-minute-consultation"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        open Calendly in a new window <span aria-hidden="true">↗</span>
+      </a>
+    </p>
   </div>
 </section>

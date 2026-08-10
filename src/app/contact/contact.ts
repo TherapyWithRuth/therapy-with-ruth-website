@@ -1,65 +1,78 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, DestroyRef, inject, signal } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import {
+  afterNextRender,
+  Component,
+  DestroyRef,
+  ElementRef,
+  inject,
+  viewChild,
+} from '@angular/core';
+
+interface CalendlyWindow extends Window {
+  Calendly?: {
+    initInlineWidget(options: { url: string; parentElement: HTMLElement }): void;
+  };
+}
+
+const CALENDLY_URL = 'https://calendly.com/therapywithruth/15-minute-consultation';
+const CALENDLY_SCRIPT_URL = 'https://assets.calendly.com/assets/external/widget.js';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
 export class ContactPage {
+  private readonly calendlyWidget = viewChild<ElementRef<HTMLElement>>('calendlyWidget');
   private readonly document = inject(DOCUMENT);
   private readonly destroyRef = inject(DestroyRef);
-  private readonly formBuilder = inject(FormBuilder);
-
-  // Temporary test recipient. Replace this with Ruth's receiving email before launch.
-  private readonly recipientEmail = 'therapywithruth@gmail.com';
-
-  protected readonly submissionMessage = signal('');
-  protected readonly contactForm = this.formBuilder.nonNullable.group({
-    name: ['', [Validators.required, Validators.maxLength(100)]],
-    email: ['', [Validators.required, Validators.email, Validators.maxLength(254)]],
-    phone: ['', [Validators.pattern(/^[0-9+().\-\s]{7,25}$/)]],
-    message: ['', [Validators.required, Validators.maxLength(2000)]],
-  });
 
   constructor() {
     this.document.documentElement.classList.add('free-scroll');
-    this.destroyRef.onDestroy(() => this.document.documentElement.classList.remove('free-scroll'));
+    this.destroyRef.onDestroy(() => {
+      this.document.documentElement.classList.remove('free-scroll');
+      this.document.querySelectorAll('.calendly-overlay').forEach((element) => element.remove());
+    });
+
+    afterNextRender(() => this.initializeCalendlyWidget());
   }
 
-  protected submitForm(): void {
-    this.submissionMessage.set('');
-    this.contactForm.markAllAsTouched();
+  private initializeCalendlyWidget(): void {
+    const parentElement = this.calendlyWidget()?.nativeElement;
+    const calendlyWindow = this.document.defaultView as CalendlyWindow | null;
 
-    if (this.contactForm.invalid) {
+    if (!parentElement || !calendlyWindow) {
       return;
     }
 
-    if (!this.recipientEmail) {
-      this.submissionMessage.set(
-        'Email delivery is not configured yet. Please use the Psychology Today profile to get in touch.',
-      );
+    const initialize = (): void => {
+      if (!parentElement.childElementCount) {
+        calendlyWindow.Calendly?.initInlineWidget({
+          url: CALENDLY_URL,
+          parentElement,
+        });
+      }
+    };
+
+    if (calendlyWindow.Calendly) {
+      initialize();
       return;
     }
 
-    const { name, email, phone, message } = this.contactForm.getRawValue();
-    const subject = encodeURIComponent(`Consultation request from ${name}`);
-    const body = encodeURIComponent(
-      [`Name: ${name}`, `Email: ${email}`, `Phone: ${phone || 'Not provided'}`, '', message].join(
-        '\n',
-      ),
-    );
+    let script = this.document.getElementById('calendly-widget-script') as HTMLScriptElement | null;
 
-    this.submissionMessage.set(
-      'Your email application should open with your message ready to send.',
-    );
-    this.document.defaultView?.location.assign(
-      `mailto:${this.recipientEmail}?subject=${subject}&body=${body}`,
-    );
+    if (!script) {
+      script = this.document.createElement('script');
+      script.id = 'calendly-widget-script';
+      script.src = CALENDLY_SCRIPT_URL;
+      script.async = true;
+      script.type = 'text/javascript';
+      script.addEventListener('load', initialize, { once: true });
+      this.document.body.appendChild(script);
+    } else {
+      script.addEventListener('load', initialize, { once: true });
+    }
+
+    this.destroyRef.onDestroy(() => script?.removeEventListener('load', initialize));
   }
 }

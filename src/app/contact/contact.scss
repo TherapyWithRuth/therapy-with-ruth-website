@@ -3,9 +3,6 @@
 }
 
 .contact {
-  --mat-sys-primary: var(--color-forest-dark);
-  --mat-sys-on-primary: var(--color-cream);
-  --mat-sys-surface: var(--color-cream);
   --contact-background-overlay: linear-gradient(
     90deg,
     rgba(230, 238, 228, 0.92) 0%,
@@ -78,63 +75,86 @@ h1 {
   line-height: 1.5;
 }
 
-.contact__alternative a {
+.contact__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-top: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.contact__email-button {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  border: 0.125rem solid var(--color-orange);
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-orange);
+  color: var(--color-forest-dark);
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.contact__email-button:hover {
+  background: var(--color-orange-soft);
+  transform: translateY(-0.125rem);
+}
+
+.contact__email-button:focus-visible {
+  outline: 0.1875rem solid var(--color-forest-dark);
+  outline-offset: 0.2rem;
+}
+
+.contact__alternative a:not(.contact__email-button) {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 0.9rem;
   color: var(--color-forest-dark);
   font-weight: 700;
   text-underline-offset: 0.25rem;
 }
 
-.contact__form-card {
+.contact__calendar-card {
   width: min(100%, 44rem);
   justify-self: end;
   border-radius: 1.5rem;
-  padding: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1rem, 2vw, 1.5rem);
   background: var(--color-cream);
   box-shadow: 0 1.25rem 3rem rgba(1, 66, 53, 0.16);
 }
 
-.contact__form-card > h2 {
-  margin-bottom: clamp(1.25rem, 3vh, 2rem);
+.contact__calendar-card > h2 {
+  margin: 0 0 1rem;
   color: var(--color-forest-dark);
-  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  text-align: center;
 }
 
-form,
-mat-form-field {
+.calendly-inline-widget {
   width: 100%;
+  min-width: 0;
+  height: min(700px, 65svh);
+  overflow: hidden;
 }
 
-.contact__field-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.contact__privacy-note {
-  margin: -0.25rem 0 1rem;
-  color: rgba(1, 66, 53, 0.8);
-  font-size: 0.82rem;
-  line-height: 1.45;
-}
-
-button[mat-flat-button] {
-  min-height: 3.25rem;
-  padding-inline: 1.5rem;
-  font-weight: 700;
-}
-
-.contact__status {
-  margin: 1rem 0 0;
-  border-radius: 0.75rem;
-  padding: 0.875rem 1rem;
-  background: var(--color-sage-light);
+.contact__calendar-fallback {
+  margin: 0.75rem 0 0;
   color: var(--color-forest-dark);
-  font-size: 0.9rem;
-  line-height: 1.4;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.contact__calendar-fallback a {
+  color: var(--color-forest-dark);
+  font-weight: 700;
+  text-underline-offset: 0.2rem;
 }
 
 @media (max-width: 52rem) {
@@ -151,7 +171,7 @@ button[mat-flat-button] {
   }
 
   .contact__intro,
-  .contact__form-card {
+  .contact__calendar-card {
     width: min(100%, 44rem);
     justify-self: center;
   }
@@ -175,16 +195,21 @@ button[mat-flat-button] {
     border-left: 0;
     padding: 1rem 0 0;
   }
+
+  .contact__actions {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 34rem) {
-  .contact__field-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .contact__form-card {
+  .contact__calendar-card {
     border-radius: 1rem;
-    padding: 1.25rem 1rem;
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact__email-button {
+    transition: none;
   }
 }
