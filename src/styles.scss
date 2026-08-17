@@ -22,12 +22,20 @@ html {
   --color-orange-soft: #f4a261;
   --color-cream: #fff7ed;
   --color-sage-light: #e6eee4;
+  --mobile-eyebrow-size: clamp(1.1rem, 4.75vw, 1.25rem);
+  --mobile-eyebrow-letter-spacing: 0.14em;
 
   color: var(--color-forest-dark);
   background: var(--color-sage-light);
   font-family: Arial, Helvetica, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+}
+
+@media (max-height: 38rem) and (max-width: 48rem) {
+  :root {
+    --mobile-eyebrow-size: 1rem;
+  }
 }
 
 * {

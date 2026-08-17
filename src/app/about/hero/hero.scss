@@ -76,8 +76,8 @@ h1 {
   .about-hero {
     grid-template-columns: 1fr;
     align-content: center;
-    gap: 1.25rem;
-    padding: 5.75rem 1.5rem 1.5rem;
+    gap: 1rem;
+    padding: 5.5rem 1.5rem 1.25rem;
   }
 
   .about-hero__content {
@@ -87,6 +87,8 @@ h1 {
 
   .about-hero__eyebrow {
     margin-bottom: 0.5rem;
+    font-size: var(--mobile-eyebrow-size);
+    letter-spacing: var(--mobile-eyebrow-letter-spacing);
   }
 
   h1 {
@@ -94,16 +96,16 @@ h1 {
   }
 
   .about-hero__intro {
-    margin-top: 1rem;
-    font-size: 1rem;
-    line-height: 1.5;
+    margin-top: 0.875rem;
+    font-size: var(--about-mobile-copy-size);
+    line-height: var(--about-mobile-copy-line-height);
   }
 
   .about-hero__image-frame {
     grid-row: 1;
     justify-self: center;
-    width: min(64vw, 14rem);
-    height: min(30vh, 16.5rem);
+    width: min(58vw, 13rem);
+    height: min(24vh, 13.5rem);
   }
 
   .about-hero__image-frame::before {
@@ -113,5 +115,21 @@ h1 {
 
   .about-hero__image-frame img {
     border-radius: 1rem;
+  }
+}
+
+@media (max-height: 38rem) and (max-width: 48rem) {
+  .about-hero {
+    gap: 0.75rem;
+    padding-top: 4.75rem;
+  }
+
+  .about-hero__image-frame {
+    width: min(42vw, 10rem);
+    height: min(20vh, 8rem);
+  }
+
+  h1 {
+    font-size: 2.2rem;
   }
 }

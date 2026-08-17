@@ -127,6 +127,11 @@ h1 {
     font-size: clamp(2.6rem, 12vw, 4rem);
   }
 
+  .services-hero__eyebrow {
+    font-size: var(--mobile-eyebrow-size);
+    letter-spacing: var(--mobile-eyebrow-letter-spacing);
+  }
+
   .services-hero__intro {
     margin-top: 1rem;
     font-size: 1rem;

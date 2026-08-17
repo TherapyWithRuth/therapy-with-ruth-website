@@ -122,6 +122,11 @@ h1 {
   .hero__intro {
     line-height: 1.5;
   }
+
+  .hero__eyebrow {
+    font-size: var(--mobile-eyebrow-size);
+    letter-spacing: var(--mobile-eyebrow-letter-spacing);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

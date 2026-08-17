@@ -1,3 +1,12 @@
 :host {
   display: block;
+  --about-mobile-copy-size: clamp(1.025rem, 4.25vw, 1.1rem);
+  --about-mobile-copy-line-height: 1.48;
+}
+
+@media (max-height: 38rem) and (max-width: 48rem) {
+  :host {
+    --about-mobile-copy-size: 0.95rem;
+    --about-mobile-copy-line-height: 1.4;
+  }
 }

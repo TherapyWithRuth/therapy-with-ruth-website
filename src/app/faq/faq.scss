@@ -160,6 +160,11 @@ mat-expansion-panel p {
     text-align: center;
   }
 
+  .faq-page__eyebrow {
+    font-size: var(--mobile-eyebrow-size);
+    letter-spacing: var(--mobile-eyebrow-letter-spacing);
+  }
+
   h1,
   .faq-page__heading > p:last-child {
     margin-inline: auto;

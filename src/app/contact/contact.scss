@@ -180,6 +180,11 @@ h1 {
     text-align: center;
   }
 
+  .contact__eyebrow {
+    font-size: var(--mobile-eyebrow-size);
+    letter-spacing: var(--mobile-eyebrow-letter-spacing);
+  }
+
   h1 {
     margin-inline: auto;
     font-size: clamp(2.5rem, 11vw, 4rem);

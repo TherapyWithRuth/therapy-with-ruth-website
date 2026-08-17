@@ -78,8 +78,8 @@ p {
   }
 
   p {
-    font-size: clamp(0.9rem, 3.8vw, 1rem);
-    line-height: 1.5;
+    font-size: var(--about-mobile-copy-size);
+    line-height: var(--about-mobile-copy-line-height);
   }
 }
 
@@ -93,7 +93,7 @@ p {
   }
 
   p {
-    font-size: 0.82rem;
-    line-height: 1.35;
+    font-size: var(--about-mobile-copy-size);
+    line-height: var(--about-mobile-copy-line-height);
   }
 }
