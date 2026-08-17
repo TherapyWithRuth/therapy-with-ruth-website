@@ -21,20 +21,7 @@
     </div>
   </section>
 
-  <section class="blog-directory" aria-labelledby="latest-articles">
-    <div class="blog-directory__heading">
-      <h2 id="latest-articles">Latest Articles</h2>
-      <div class="blog-directory__controls" aria-label="Article carousel controls">
-        <button type="button" (click)="scrollArticles(-1)" aria-label="View previous articles">
-          <span aria-hidden="true">←</span>
-        </button>
-        <span>Scroll to explore</span>
-        <button type="button" (click)="scrollArticles(1)" aria-label="View more articles">
-          <span aria-hidden="true">→</span>
-        </button>
-      </div>
-    </div>
-
+  <section class="blog-directory" aria-label="Blog articles">
     @if (posts(); as loadedPosts) {
       @if (loadFailed()) {
         <div class="blog-notice" role="alert">
@@ -42,6 +29,19 @@
           <p>Please check back shortly.</p>
         </div>
       } @else if (loadedPosts.length) {
+        <div class="blog-directory__heading">
+          <h2>Latest Articles</h2>
+          <div class="blog-directory__controls" aria-label="Article carousel controls">
+            <button type="button" (click)="scrollArticles(-1)" aria-label="View previous articles">
+              <span aria-hidden="true">←</span>
+            </button>
+            <span>Scroll to explore</span>
+            <button type="button" (click)="scrollArticles(1)" aria-label="View more articles">
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
         <div #articleScroller class="blog-grid">
           @for (post of loadedPosts; track post._id) {
             <article class="post-card">
@@ -67,7 +67,7 @@
         </div>
       } @else {
         <div class="blog-notice">
-          <h3>New articles are coming soon</h3>
+          <h2>Coming Soon!</h2>
           <p>Ruth will be sharing reflections and practical mental health resources here.</p>
         </div>
       }

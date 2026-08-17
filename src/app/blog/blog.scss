@@ -254,10 +254,16 @@
   text-align: center;
 }
 
+.blog-notice h2,
 .blog-notice h3 {
   margin: 0;
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 2rem;
+}
+
+.blog-notice h2 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 500;
 }
 
 .blog-cta {
