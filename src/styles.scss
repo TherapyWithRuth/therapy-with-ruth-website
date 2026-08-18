@@ -47,6 +47,11 @@ html {
   scroll-snap-type: y mandatory;
 }
 
+html:not(.free-scroll),
+html:not(.free-scroll) body {
+  overscroll-behavior-y: none;
+}
+
 html.free-scroll {
   scroll-snap-type: none;
 }
