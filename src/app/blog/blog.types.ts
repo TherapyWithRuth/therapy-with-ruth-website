@@ -31,6 +31,7 @@ export interface BlogPostSummary {
   excerpt: string;
   author: string;
   publishedAt: string;
+  updatedAt: string;
   mainImage: BlogImage;
 }
 

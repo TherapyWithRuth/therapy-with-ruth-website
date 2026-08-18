@@ -66,36 +66,14 @@ export class BlogArticlePage {
 
     this.seo.setArticleMetadata({
       title,
+      headline: post.title,
       description,
       canonicalPath: `/blog/${encodeURIComponent(post.slug)}/`,
       image,
       imageAlt: post.mainImage.alt,
       publishedAt: post.publishedAt,
+      updatedAt: post.updatedAt,
       author: post.author,
     });
-
-    const structuredData = {
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      headline: post.title,
-      description,
-      image,
-      datePublished: post.publishedAt,
-      author: {
-        '@type': 'Person',
-        name: post.author,
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'Therapy with Ruth',
-      },
-    };
-
-    this.document.getElementById('blog-post-structured-data')?.remove();
-    const script = this.document.createElement('script');
-    script.id = 'blog-post-structured-data';
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify(structuredData);
-    this.document.head.appendChild(script);
   }
 }

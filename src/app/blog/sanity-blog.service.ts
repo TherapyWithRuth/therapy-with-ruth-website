@@ -32,6 +32,7 @@ const postSummaryProjection = `
   excerpt,
   author,
   publishedAt,
+  "updatedAt": _updatedAt,
   mainImage {
     ...,
     asset,

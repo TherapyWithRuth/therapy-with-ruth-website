@@ -5,6 +5,8 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter, startWith } from 'rxjs';
 
+import { StructuredDataService } from './structured-data.service';
+
 const SITE_ORIGIN = 'https://therapywithruth.com';
 
 export interface PageSeoData {
@@ -12,6 +14,7 @@ export interface PageSeoData {
   canonicalPath: string;
   image: string;
   imageAlt: string;
+  breadcrumbLabel?: string;
 }
 
 interface PageMetadata extends PageSeoData {
@@ -20,7 +23,9 @@ interface PageMetadata extends PageSeoData {
 }
 
 interface ArticleMetadata extends PageMetadata {
+  headline: string;
   publishedAt: string;
+  updatedAt: string;
   author: string;
 }
 
@@ -31,6 +36,7 @@ export class SeoService {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   private readonly document = inject(DOCUMENT);
+  private readonly structuredData = inject(StructuredDataService);
   private readonly destroyRef = inject(DestroyRef);
 
   constructor() {
@@ -47,6 +53,7 @@ export class SeoService {
     this.setPageMetadata({ ...metadata, type: 'article' });
     this.meta.updateTag({ property: 'article:published_time', content: metadata.publishedAt });
     this.meta.updateTag({ property: 'article:author', content: metadata.author });
+    this.structuredData.setBlogArticleData(metadata);
   }
 
   setArticleNotFoundMetadata(): void {
@@ -58,6 +65,7 @@ export class SeoService {
     this.meta.updateTag({ name: 'robots', content: 'noindex, follow' });
     this.removeArticleMetadata();
     this.removeCanonical();
+    this.structuredData.remove();
   }
 
   private applyRouteMetadata(): void {
@@ -76,7 +84,7 @@ export class SeoService {
 
     this.setPageMetadata({ ...seo, title: routeTitle });
     this.removeArticleMetadata();
-    this.document.getElementById('blog-post-structured-data')?.remove();
+    this.structuredData.setStaticPageData(seo);
   }
 
   private setPageMetadata(metadata: PageMetadata): void {

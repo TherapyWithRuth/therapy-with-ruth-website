@@ -63,6 +63,7 @@ export const routes: Routes = [
         canonicalPath: '/services/depression-anxiety/',
         image: '/images/new-york-across-the-hudson.jpeg',
         imageAlt: 'New York City viewed across the Hudson River',
+        breadcrumbLabel: 'Anxiety and Depression',
       },
     },
     loadComponent: () =>
@@ -81,6 +82,7 @@ export const routes: Routes = [
         canonicalPath: '/services/body-image-eating-disorder/',
         image: '/images/new-york-across-the-hudson.jpeg',
         imageAlt: 'New York City viewed across the Hudson River',
+        breadcrumbLabel: 'Body Image and Eating Concerns',
       },
     },
     loadComponent: () =>
@@ -99,6 +101,7 @@ export const routes: Routes = [
         canonicalPath: '/services/life-transitions/',
         image: '/images/new-york-across-the-hudson.jpeg',
         imageAlt: 'New York City viewed across the Hudson River',
+        breadcrumbLabel: 'Life Transitions',
       },
     },
     loadComponent: () =>
@@ -117,6 +120,7 @@ export const routes: Routes = [
         canonicalPath: '/services/racism-immigrant-experience/',
         image: '/images/new-york-across-the-hudson.jpeg',
         imageAlt: 'New York City viewed across the Hudson River',
+        breadcrumbLabel: 'Racism and Immigrant Experiences',
       },
     },
     loadComponent: () =>
@@ -135,6 +139,7 @@ export const routes: Routes = [
         canonicalPath: '/services/trauma-ptsd/',
         image: '/images/new-york-across-the-hudson.jpeg',
         imageAlt: 'New York City viewed across the Hudson River',
+        breadcrumbLabel: 'Trauma and PTSD',
       },
     },
     loadComponent: () =>
@@ -153,6 +158,7 @@ export const routes: Routes = [
         canonicalPath: '/services/communication-self-esteem/',
         image: '/images/new-york-across-the-hudson.jpeg',
         imageAlt: 'New York City viewed across the Hudson River',
+        breadcrumbLabel: 'Communication and Self Esteem',
       },
     },
     loadComponent: () =>
