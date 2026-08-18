@@ -1,12 +1,12 @@
 import { DOCUMENT, DatePipe } from '@angular/common';
 import { Component, DestroyRef, inject, signal } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { from, map, switchMap } from 'rxjs';
 import { pendingUntilEvent, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import type { BlogPost } from '../blog.types';
 import { SanityBlogService } from '../sanity-blog.service';
+import { SeoService } from '../../shared/seo.service';
 
 @Component({
   selector: 'app-blog-article',
@@ -17,8 +17,7 @@ import { SanityBlogService } from '../sanity-blog.service';
 export class BlogArticlePage {
   private readonly route = inject(ActivatedRoute);
   private readonly blogService = inject(SanityBlogService);
-  private readonly title = inject(Title);
-  private readonly meta = inject(Meta);
+  private readonly seo = inject(SeoService);
   private readonly document = inject(DOCUMENT);
   private readonly destroyRef = inject(DestroyRef);
 
@@ -42,7 +41,7 @@ export class BlogArticlePage {
           this.post.set(post);
 
           if (!post) {
-            this.title.setTitle('Article Not Found | Therapy with Ruth');
+            this.seo.setArticleNotFoundMetadata();
             return;
           }
 
@@ -65,19 +64,15 @@ export class BlogArticlePage {
     const description = post.seoDescription?.trim() || post.excerpt;
     const image = this.imageUrl(post);
 
-    this.title.setTitle(title);
-    this.meta.updateTag({ name: 'description', content: description });
-    this.meta.updateTag({ name: 'robots', content: 'index, follow, max-image-preview:large' });
-    this.meta.updateTag({ property: 'og:type', content: 'article' });
-    this.meta.updateTag({ property: 'og:title', content: title });
-    this.meta.updateTag({ property: 'og:description', content: description });
-    this.meta.updateTag({ property: 'og:image', content: image });
-    this.meta.updateTag({ property: 'article:published_time', content: post.publishedAt });
-    this.meta.updateTag({ property: 'article:author', content: post.author });
-    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-    this.meta.updateTag({ name: 'twitter:title', content: title });
-    this.meta.updateTag({ name: 'twitter:description', content: description });
-    this.meta.updateTag({ name: 'twitter:image', content: image });
+    this.seo.setArticleMetadata({
+      title,
+      description,
+      canonicalPath: `/blog/${encodeURIComponent(post.slug)}/`,
+      image,
+      imageAlt: post.mainImage.alt,
+      publishedAt: post.publishedAt,
+      author: post.author,
+    });
 
     const structuredData = {
       '@context': 'https://schema.org',
