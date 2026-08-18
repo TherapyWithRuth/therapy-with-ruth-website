@@ -176,6 +176,14 @@ mat-expansion-panel p {
 
   .faq-page__heading > p:last-child {
     margin-top: 1rem;
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
+  }
+
+  mat-expansion-panel p,
+  .faq-page__cta p {
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
   }
 
   .faq-page__content {

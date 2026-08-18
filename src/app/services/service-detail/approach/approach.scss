@@ -111,8 +111,8 @@ h2 {
   }
 
   .service-approach__copy p {
-    font-size: clamp(0.82rem, 3.4vw, 0.95rem);
-    line-height: 1.4;
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
   }
 
   .service-approach__cta {
@@ -125,8 +125,8 @@ h2 {
 
   .service-approach__cta p {
     margin-top: 0.5rem;
-    font-size: 0.85rem;
-    line-height: 1.4;
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
   }
 
   .service-approach__cta a {
@@ -138,7 +138,8 @@ h2 {
 
 @media (max-height: 40rem) and (max-width: 48rem) {
   .service-approach__copy p {
-    font-size: 0.78rem;
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
   }
 }
 

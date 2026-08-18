@@ -78,8 +78,8 @@ p {
 
   p {
     margin-top: 1.25rem;
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
   }
 
   .cta__button {
@@ -89,7 +89,7 @@ p {
   }
 }
 
-@media (max-height: 42rem) {
+@media (max-height: 42rem) and (max-width: 48rem) {
   .cta {
     padding-block: 4.5rem 1.5rem;
   }
@@ -100,8 +100,8 @@ p {
 
   p {
     margin-top: 0.875rem;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
   }
 
   .cta__button {

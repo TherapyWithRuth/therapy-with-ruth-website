@@ -112,8 +112,8 @@ h2 {
 
   .directory__heading p {
     margin-inline: auto;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
   }
 
   .directory__grid {

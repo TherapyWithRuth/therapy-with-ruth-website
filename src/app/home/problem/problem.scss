@@ -48,3 +48,10 @@ p {
   line-height: 1.6;
   text-wrap: pretty;
 }
+
+@media (max-width: 42rem) {
+  p {
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
+  }
+}

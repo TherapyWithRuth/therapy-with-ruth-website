@@ -116,6 +116,11 @@ h2 {
     gap: 0.25rem;
   }
 
+  .faq__item dd {
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
+  }
+
   .faq__button {
     margin-top: 1.25rem;
   }

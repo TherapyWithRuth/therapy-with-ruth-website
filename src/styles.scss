@@ -24,6 +24,8 @@ html {
   --color-sage-light: #e6eee4;
   --mobile-eyebrow-size: clamp(1.1rem, 4.75vw, 1.25rem);
   --mobile-eyebrow-letter-spacing: 0.14em;
+  --mobile-copy-size: clamp(1.025rem, 4.25vw, 1.1rem);
+  --mobile-copy-line-height: 1.48;
 
   color: var(--color-forest-dark);
   background: var(--color-sage-light);
@@ -35,6 +37,8 @@ html {
 @media (max-height: 38rem) and (max-width: 48rem) {
   :root {
     --mobile-eyebrow-size: 1rem;
+    --mobile-copy-size: 0.95rem;
+    --mobile-copy-line-height: 1.4;
   }
 }
 

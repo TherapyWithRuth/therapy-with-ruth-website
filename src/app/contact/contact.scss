@@ -205,8 +205,8 @@ h1 {
     order: 3;
     justify-self: center;
     margin-top: 0.5rem;
-    font-size: clamp(0.875rem, 3.6vw, 1rem);
-    line-height: 1.4;
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
     text-align: center;
   }
 

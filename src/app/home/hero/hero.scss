@@ -120,7 +120,8 @@ h1 {
   }
 
   .hero__intro {
-    line-height: 1.5;
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
   }
 
   .hero__eyebrow {

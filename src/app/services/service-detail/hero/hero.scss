@@ -124,8 +124,8 @@ h1 {
 
   .detail-hero__intro {
     margin-top: 1rem;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
   }
 
   .detail-hero__link {

@@ -90,8 +90,8 @@ h2 {
   }
 
   .concerns__heading p {
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
   }
 
   .concerns__grid {

@@ -317,6 +317,12 @@
     letter-spacing: var(--mobile-eyebrow-letter-spacing);
   }
 
+  .blog-hero > p:last-child,
+  .blog-cta p {
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
+  }
+
   .blog-banner {
     min-height: 0;
   }

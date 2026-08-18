@@ -144,6 +144,11 @@ p {
     padding: 1rem;
   }
 
+  p {
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
+  }
+
   .about__button {
     margin-top: 1rem;
   }

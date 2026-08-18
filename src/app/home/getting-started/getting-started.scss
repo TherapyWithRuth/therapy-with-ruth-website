@@ -104,8 +104,8 @@ h2 {
   }
 
   .getting-started__intro {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
   }
 
   .getting-started__focus {

@@ -154,6 +154,11 @@ p {
     text-shadow: 0 0.125rem 1rem rgba(0, 28, 22, 0.35);
   }
 
+  p {
+    font-size: var(--mobile-copy-size);
+    line-height: var(--mobile-copy-line-height);
+  }
+
   .location__content--cta {
     align-self: start;
     padding: clamp(1rem, 4vw, 1.5rem);
