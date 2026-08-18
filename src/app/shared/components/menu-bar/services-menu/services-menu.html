@@ -1,14 +1,16 @@
 <div class="services-menu">
   <div class="services-menu__trigger">
-    <a routerLink="/services" (click)="closeSubmenu()">Services</a>
     <button
+      class="services-menu__toggle"
+      [class.services-menu__toggle--open]="isSubmenuOpen()"
       type="button"
-      aria-label="Toggle services menu"
+      [attr.aria-label]="isSubmenuOpen() ? 'Hide services menu' : 'Show services menu'"
       aria-controls="services-submenu"
       [attr.aria-expanded]="isSubmenuOpen()"
       (click)="toggleSubmenu()"
     >
-      <span aria-hidden="true"></span>
+      <span class="services-menu__toggle-label">Services</span>
+      <span class="services-menu__chevron" aria-hidden="true"></span>
     </button>
   </div>
 
@@ -17,6 +19,12 @@
     class="services-menu__submenu"
     [class.services-menu__submenu--open]="isSubmenuOpen()"
   >
+    <li>
+      <a class="services-menu__overview-link" routerLink="/services" (click)="closeSubmenu()">
+        Overview
+      </a>
+    </li>
+
     @for (service of serviceLinks; track service.path) {
       <li>
         <a [routerLink]="service.path" (click)="closeSubmenu()">{{ service.label }}</a>

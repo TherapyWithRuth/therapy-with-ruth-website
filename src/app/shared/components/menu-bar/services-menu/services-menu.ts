@@ -1,4 +1,5 @@
-import { Component, output, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, inject, output, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 interface ServiceLink {
@@ -13,6 +14,8 @@ interface ServiceLink {
   styleUrl: './services-menu.scss',
 })
 export class ServicesMenu {
+  private readonly document = inject(DOCUMENT);
+
   readonly navigate = output<void>();
 
   protected readonly isSubmenuOpen = signal(false);
@@ -27,6 +30,13 @@ export class ServicesMenu {
   ];
 
   protected toggleSubmenu(): void {
+    const isMobileViewport =
+      this.document.defaultView?.matchMedia('(max-width: 48rem)').matches ?? false;
+
+    if (!isMobileViewport) {
+      return;
+    }
+
     this.isSubmenuOpen.update((isOpen) => !isOpen);
   }
 

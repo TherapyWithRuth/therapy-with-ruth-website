@@ -16,34 +16,38 @@
   transition: background-color 160ms ease;
 }
 
-.services-menu__trigger > a {
-  display: inline-flex;
-  min-height: 2.5rem;
-  align-items: center;
-  padding: 0 0.25rem 0 0.7rem;
-  color: #fff;
-  font-weight: 500;
-  text-decoration: none;
+.services-menu__toggle-label {
+  display: inline;
 }
 
 .services-menu__trigger > button {
-  display: grid;
-  width: 2rem;
+  display: flex;
+  width: auto;
   min-height: 2.5rem;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
   border: 0;
-  padding: 0;
+  padding: 0 0.7rem;
   background: transparent;
   color: #fff;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-.services-menu__trigger > button span {
+.services-menu__chevron {
+  display: block;
   width: 0.5rem;
   height: 0.5rem;
   border-right: 0.125rem solid currentColor;
   border-bottom: 0.125rem solid currentColor;
   transform: rotate(45deg) translate(-0.1rem, 0.1rem);
+  transition: transform 160ms ease;
+}
+
+.services-menu__toggle--open .services-menu__chevron {
+  transform: rotate(225deg) translate(-0.1rem, 0.1rem);
 }
 
 .services-menu:hover .services-menu__trigger,
@@ -51,7 +55,6 @@
   background: rgba(255, 255, 255, 0.18);
 }
 
-.services-menu__trigger > a:focus-visible,
 .services-menu__trigger > button:focus-visible {
   border-radius: 0.3rem;
   outline: 0.15rem solid #fff;
@@ -81,10 +84,11 @@
   transform: translateX(-50%);
 }
 
-.services-menu:hover .services-menu__submenu,
-.services-menu:focus-within .services-menu__submenu,
-.services-menu__submenu--open {
-  display: grid;
+@media (min-width: 48.0625rem) {
+  .services-menu:hover .services-menu__submenu,
+  .services-menu:focus-within .services-menu__submenu {
+    display: grid;
+  }
 }
 
 .services-menu__submenu a {
@@ -101,6 +105,12 @@
   background: #f9d7b9;
 }
 
+.services-menu__submenu .services-menu__overview-link {
+  border-bottom: 0.0625rem solid rgba(1, 66, 53, 0.18);
+  border-radius: 0.3rem 0.3rem 0;
+  font-weight: 700;
+}
+
 @media (max-width: 48rem) {
   :host,
   .services-menu {
@@ -108,18 +118,28 @@
   }
 
   .services-menu__trigger {
+    display: block;
+    width: 100%;
     height: auto;
-    justify-content: center;
-  }
-
-  .services-menu__trigger > a {
-    flex: 0 1 auto;
-    min-height: 3rem;
-    font-size: clamp(1.25rem, 5vw, 1.6rem);
+    overflow: hidden;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.24);
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
   }
 
   .services-menu__trigger > button {
-    width: 2.75rem;
+    width: 100%;
+    min-height: 3rem;
+    gap: 0.65rem;
+    padding-inline: 0.75rem;
+    color: var(--color-cream);
+    font-size: clamp(1.25rem, 5vw, 1.6rem);
+  }
+
+  .services-menu__toggle-label {
+    font-size: inherit;
+    font-weight: 500;
+    white-space: nowrap;
   }
 
   .services-menu__submenu {
@@ -140,6 +160,10 @@
     color: #fff;
   }
 
+  .services-menu__submenu .services-menu__overview-link {
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+  }
+
   .services-menu__submenu a:hover,
   .services-menu__submenu a:focus-visible {
     background: rgba(255, 255, 255, 0.18);
@@ -155,7 +179,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .services-menu__trigger {
+  .services-menu__trigger,
+  .services-menu__chevron {
     transition: none;
   }
 }
