@@ -11,7 +11,11 @@
   padding: clamp(2.5rem, 7vh, 6rem) clamp(1.5rem, 8vw, 8rem);
   background:
     linear-gradient(rgba(230, 238, 228, 0.72), rgba(230, 238, 228, 0.72)),
-    url('/images/storybook.jpg') center / cover no-repeat;
+    image-set(
+        url('/images/storybook.webp') type('image/webp'),
+        url('/images/storybook.jpg') type('image/jpeg')
+      )
+      center / cover no-repeat;
 }
 
 .what-to-expect__content {

@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
     "build": "npm run generate:sitemap && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -35,6 +36,7 @@
     "@angular/compiler-cli": "^22.1.0",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
+    "sharp": "^0.35.3",
     "typescript": "~6.0.2",
     "vitest": "^4.0.8"
   }

@@ -20,7 +20,11 @@
   padding: clamp(7rem, 13vh, 9rem) clamp(1.5rem, 8vw, 8rem) clamp(3rem, 8vh, 6rem);
   background:
     var(--services-hero-overlay),
-    url('/images/new-york-across-the-hudson.jpeg') center / cover no-repeat;
+    image-set(
+        url('/images/new-york-across-the-hudson.webp') type('image/webp'),
+        url('/images/new-york-across-the-hudson.jpeg') type('image/jpeg')
+      )
+      center / cover no-repeat;
 }
 
 .services-hero__content {

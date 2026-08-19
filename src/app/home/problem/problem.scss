@@ -36,6 +36,13 @@ h2 {
   height: var(--image-size);
   margin: 1.5rem auto 0;
   border-radius: 50%;
+  overflow: hidden;
+}
+
+.problem__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }

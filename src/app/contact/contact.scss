@@ -18,7 +18,11 @@
   padding: clamp(7rem, 12vh, 9rem) clamp(1.5rem, 8vw, 8rem) clamp(2.5rem, 6vh, 5rem);
   background:
     var(--contact-background-overlay),
-    url('/images/cliffside-lima.jpeg') center / cover no-repeat;
+    image-set(
+        url('/images/cliffside-lima.webp') type('image/webp'),
+        url('/images/cliffside-lima.jpeg') type('image/jpeg')
+      )
+      center / cover no-repeat;
 }
 
 .contact__intro {

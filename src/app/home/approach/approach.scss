@@ -52,7 +52,7 @@ h2 {
   text-wrap: balance;
 }
 
-.approach__points img,
+.approach__picture,
 .approach__image-placeholder {
   display: grid;
   width: 100%;
@@ -63,8 +63,25 @@ h2 {
   border-radius: 1.25rem;
 }
 
+.approach__picture {
+  display: block;
+  overflow: hidden;
+}
+
 .approach__points img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
   object-fit: cover;
+}
+
+.approach__points li:nth-child(2) img {
+  object-position: center 42%;
+}
+
+.approach__points li:nth-child(3) img {
+  object-position: center 40%;
 }
 
 .approach__image-placeholder {
@@ -110,6 +127,25 @@ h2 {
   outline-offset: 0.25rem;
 }
 
+@media (min-width: 64rem) {
+  .approach {
+    padding-inline: clamp(2.5rem, 5vw, 6rem);
+  }
+
+  .approach__content {
+    width: min(100%, 84rem);
+  }
+
+  .approach__points {
+    gap: clamp(1.25rem, 2vw, 2rem);
+  }
+
+  .approach__picture,
+  .approach__image-placeholder {
+    aspect-ratio: 5 / 4;
+  }
+}
+
 @media (max-width: 42rem) {
   .approach {
     padding-block: clamp(1.5rem, 4vh, 3rem);
@@ -129,7 +165,7 @@ h2 {
     min-height: 0;
   }
 
-  .approach__points img,
+  .approach__picture,
   .approach__image-placeholder {
     height: min(18vh, 9rem);
     margin-top: 0.5rem;

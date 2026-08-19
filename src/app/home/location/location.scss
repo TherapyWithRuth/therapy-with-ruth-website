@@ -10,7 +10,11 @@
   grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.8fr);
   gap: clamp(2rem, 7vw, 7rem);
   padding: clamp(3rem, 8vh, 7rem) clamp(1.5rem, 8vw, 8rem);
-  background: url('/images/inside-nyc-subway-car.jpg') center / cover no-repeat;
+  background: image-set(
+      url('/images/inside-nyc-subway-car.webp') type('image/webp'),
+      url('/images/inside-nyc-subway-car.jpg') type('image/jpeg')
+    )
+    center / cover no-repeat;
 }
 
 .location__content {
@@ -171,7 +175,11 @@ p {
     align-self: center;
     margin-left: -1rem;
     background:
-      url('/images/inside-nyc-subway-car.jpg') left center / cover no-repeat,
+      image-set(
+          url('/images/inside-nyc-subway-car.webp') type('image/webp'),
+          url('/images/inside-nyc-subway-car.jpg') type('image/jpeg')
+        )
+        left center / cover no-repeat,
       var(--color-forest-dark);
   }
 }

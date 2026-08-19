@@ -7,15 +7,18 @@
         <li>
           <h3>{{ point.title }}</h3>
 
-          @if (point.imageSrc && point.imageAlt) {
-            <img
-              [src]="point.imageSrc"
-              [alt]="point.imageAlt"
-              [attr.width]="point.imageWidth"
-              [attr.height]="point.imageHeight"
-              loading="lazy"
-              decoding="async"
-            />
+          @if (point.imageSrc && point.imageFallbackSrc && point.imageAlt) {
+            <picture class="approach__picture">
+              <source [srcset]="point.imageSrc" type="image/webp" />
+              <img
+                [src]="point.imageFallbackSrc"
+                [alt]="point.imageAlt"
+                [attr.width]="point.imageWidth"
+                [attr.height]="point.imageHeight"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           } @else {
             <div class="approach__image-placeholder" aria-hidden="true">
               <span>Photo placeholder</span>
