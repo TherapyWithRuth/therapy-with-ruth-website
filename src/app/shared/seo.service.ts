@@ -78,6 +78,11 @@ export class SeoService {
     const seo = route.snapshot.data['seo'] as PageSeoData | undefined;
     const routeTitle = route.snapshot.title;
 
+    if (route.snapshot.data['notFound'] === true) {
+      this.setNotFoundMetadata();
+      return;
+    }
+
     if (!seo || typeof routeTitle !== 'string') {
       return;
     }
@@ -85,6 +90,23 @@ export class SeoService {
     this.setPageMetadata({ ...seo, title: routeTitle });
     this.removeArticleMetadata();
     this.structuredData.setStaticPageData(seo);
+  }
+
+  private setNotFoundMetadata(): void {
+    const title = 'Page Not Found | Therapy with Ruth';
+    const description = 'The requested page could not be found.';
+
+    this.title.setTitle(title);
+    this.meta.updateTag({ name: 'description', content: description });
+    this.meta.updateTag({ name: 'robots', content: 'noindex, follow' });
+    this.meta.updateTag({ property: 'og:title', content: title });
+    this.meta.updateTag({ property: 'og:description', content: description });
+    this.meta.updateTag({ name: 'twitter:title', content: title });
+    this.meta.updateTag({ name: 'twitter:description', content: description });
+    this.meta.removeTag("property='og:url'");
+    this.removeArticleMetadata();
+    this.removeCanonical();
+    this.structuredData.remove();
   }
 
   private setPageMetadata(metadata: PageMetadata): void {

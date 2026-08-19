@@ -213,4 +213,16 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./blog/article/article').then((component) => component.BlogArticlePage),
   },
+  {
+    path: '404',
+    data: { notFound: true },
+    loadComponent: () =>
+      import('./not-found/not-found').then((component) => component.NotFoundPage),
+  },
+  {
+    path: '**',
+    data: { notFound: true },
+    loadComponent: () =>
+      import('./not-found/not-found').then((component) => component.NotFoundPage),
+  },
 ];

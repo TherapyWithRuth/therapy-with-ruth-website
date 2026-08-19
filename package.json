@@ -7,6 +7,7 @@
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "build": "npm run generate:sitemap && ng build",
+    "postbuild": "node scripts/create-404.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
